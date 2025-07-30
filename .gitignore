@@ -1,0 +1,23 @@
+﻿################################################################################
+# Este arquivo .gitignore foi criado automaticamente pelo Microsoft(R) Visual Studio.
+################################################################################
+
+/Indt.Sistema.Seguros/.vs
+/Indt.Sistema.Seguros/Indt.Sistema.Seguros.Contratos.API/obj
+/Indt.Sistema.Seguros/Indt.Sistema.Seguros.Tests/obj
+/Indt.Sistema.Seguros/src/Driving/Indt.Sistema.Seguros.Api/obj
+/Indt.Sistema.Seguros/src/Indt.Sistema.Seguros.App.API/obj
+/Indt.Sistema.Seguros/src/Indt.Sistema.Seguros.App.Workers/obj
+/Indt.Sistema.Seguros/src/Indt.Sistema.Seguros.Domain/obj
+/Indt.Sistema.Seguros/src/Indt.Sistema.Seguros.Infra.DataBase/obj
+/Indt.Sistema.Seguros/src/Indt.Sistema.Seguros.Infra.MessageBroker/obj
+/Indt.Sistema.Seguros/src/Indt.Sistema.Seguros.Proposta.API/obj
+/.vs
+/Indt.Sistema.Seguros/Indt.Sistema.Seguros.Contratos.API/bin/Debug/net8.0
+/Indt.Sistema.Seguros/Indt.Sistema.Seguros.Tests/bin/Debug/net8.0
+/Indt.Sistema.Seguros/src/Indt.Sistema.Seguros.App.API/bin/Debug/net8.0
+/Indt.Sistema.Seguros/src/Indt.Sistema.Seguros.App.Workers/bin/Debug/net8.0
+/Indt.Sistema.Seguros/src/Indt.Sistema.Seguros.Domain/bin/Debug/net8.0
+/Indt.Sistema.Seguros/src/Indt.Sistema.Seguros.Infra.DataBase/bin/Debug/net8.0
+/Indt.Sistema.Seguros/src/Indt.Sistema.Seguros.Infra.MessageBroker/bin/Debug/net8.0
+/Indt.Sistema.Seguros/src/Indt.Sistema.Seguros.Proposta.API/bin/Debug/net8.0
