@@ -1,0 +1,6 @@
+@Indt.Sistema.Seguros.Contratos.API_HostAddress = http://localhost:5027
+
+GET {{Indt.Sistema.Seguros.Contratos.API_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
