@@ -4,19 +4,19 @@ namespace Indt.Sistema.Seguros.Domain.Models.ContratoAgreggate
 {
     public class Contrato : CoreEntity
     {
-        public int Numero { get; set; }
+        public int Numero { get; init; }
 
-        public DateTime DataInicial { get; set; }
+        public DateTime DataInicial { get; init; }
 
-        public DateTime DataFinal { get; set; }
+        public DateTime DataFinal { get; init; }
 
-        public int NumeroPorposta { get; set; }
+        public int NumeroPorposta { get; init; }
 
-        public decimal Valor { get; set; }
+        public decimal Valor { get; init; }
 
-        public int Prazo { get; set; }
+        public int Prazo { get; init; }
 
-        public int NumeroProposta { get; set; }
+        public int NumeroProposta { get; init; }
 
         public List<Parcela> Parcelas { get; private set; }
 

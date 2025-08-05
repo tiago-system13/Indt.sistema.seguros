@@ -1,4 +1,4 @@
-﻿using Indt.Sistema.Seguros.Domain.Adapters;
+﻿using Indt.Sistema.Seguros.Domain.Adapters.Repository;
 using Indt.Sistema.Seguros.Domain.Models.ContratoAgreggate;
 using Indt.Sistema.Seguros.Domain.Shared.Notifications;
 using Indt.Sistema.Seguros.Infra.DataBase.EntityFramework;

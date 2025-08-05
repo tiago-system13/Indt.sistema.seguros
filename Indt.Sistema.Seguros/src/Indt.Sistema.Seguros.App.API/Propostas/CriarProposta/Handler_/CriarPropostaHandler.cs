@@ -1,5 +1,5 @@
 ﻿using Indt.Sistema.Seguros.App.API.Shared;
-using Indt.Sistema.Seguros.Domain.Adapters;
+using Indt.Sistema.Seguros.Domain.Adapters.Repository;
 using Indt.Sistema.Seguros.Domain.Models.PropostaAgreggate;
 using Indt.Sistema.Seguros.Domain.ObjectValues;
 using Indt.Sistema.Seguros.Domain.Shared.Notifications;

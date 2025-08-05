@@ -1,7 +1,7 @@
 ﻿using Indt.Sistema.Seguros.Domain.Models.PropostaAgreggate;
 using Indt.Sistema.Seguros.Domain.Shared.Enums;
 
-namespace Indt.Sistema.Seguros.Domain.Adapters
+namespace Indt.Sistema.Seguros.Domain.Adapters.Repository
 {
     public interface IPropostaRepository
     {

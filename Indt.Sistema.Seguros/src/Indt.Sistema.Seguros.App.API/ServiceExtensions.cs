@@ -1,5 +1,5 @@
 ﻿using Indt.Sistema.Seguros.App.API.Propostas.CriarProposta;
-using Indt.Sistema.Seguros.Domain.Adapters;
+using Indt.Sistema.Seguros.Domain.Adapters.Repository;
 using MediatR;
 using Microsoft.Extensions.DependencyInjection;
 
