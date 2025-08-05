@@ -1,6 +1,8 @@
-﻿namespace Indt.Sistema.Seguros.Domain.Models.ContratoAgreggate
+﻿using Indt.Sistema.Seguros.Domain.Models.Models.Shared;
+
+namespace Indt.Sistema.Seguros.Domain.Models.ContratoAgreggate
 {
-    public class Contrato
+    public class Contrato : CoreEntity
     {
         public int Numero { get; set; }
 
@@ -13,6 +15,8 @@
         public decimal Valor { get; set; }
 
         public int Prazo { get; set; }
+
+        public int NumeroProposta { get; set; }
 
         public List<Parcela> Parcelas { get; private set; }
 
@@ -42,7 +46,7 @@
         {
             for (int i = 1; i <= prazo; i++)
             {
-                Parcelas.Add(new Parcela { Valor = valor, Data = DateTime.Now.AddDays(i * 30), Numero = i });
+                Parcelas.Add(new Parcela(valor,DateTime.Now.AddDays(i * 30),i));
             }
         }
 

@@ -33,7 +33,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Indt.Sistema.Seguros.Tests"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Indt.Sistema.Seguros.Proposta.API", "src\Indt.Sistema.Seguros.Proposta.API\Indt.Sistema.Seguros.Proposta.API.csproj", "{869D7203-C58E-4E6B-BFDF-0D23FC9D0D10}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Indt.Sistema.Seguros.Contratos.API", "Indt.Sistema.Seguros.Contratos.API\Indt.Sistema.Seguros.Contratos.API.csproj", "{D84DE40B-2C43-40C1-A844-A93096ED59A2}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Indt.Sistema.Seguros.Contratos.API", "src\Indt.Sistema.Seguros.Contratos.API\Indt.Sistema.Seguros.Contratos.API.csproj", "{D84DE40B-2C43-40C1-A844-A93096ED59A2}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

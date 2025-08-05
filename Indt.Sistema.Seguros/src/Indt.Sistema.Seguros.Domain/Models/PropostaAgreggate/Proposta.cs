@@ -15,17 +15,15 @@ namespace Indt.Sistema.Seguros.Domain.Models.PropostaAgreggate
 
         public StatusProposta StatusProposta { get; private set; }
 
-        public decimal Valor { get; set; }
+        public decimal Valor { get; private set; }
 
-        public int Prazo { get; set; }
-
-       
+        public int Prazo { get; private set; }
 
         public Cliente Cliente { get; private set; }
 
-        public Bem Bem { get; set; }
+        public Bem Bem { get; private set; }
 
-        public Cobertura Cobertura { get; set; }
+        public Cobertura Cobertura { get; private set; }
         
         public Proposta
         (
@@ -38,7 +36,8 @@ namespace Indt.Sistema.Seguros.Domain.Models.PropostaAgreggate
             int prazo,
             Cliente cliente,
             Bem bem,
-            Cobertura cobertura)
+            Cobertura cobertura,
+            Guid? id = null)
         {
             Numero = numero;
             DataInicio = dataInicio;

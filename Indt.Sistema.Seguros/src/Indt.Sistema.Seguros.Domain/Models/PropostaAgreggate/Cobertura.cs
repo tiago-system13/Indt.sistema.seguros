@@ -2,14 +2,14 @@
 {
     public class Cobertura
     {
-        public string Descricao { get; init; }
+        public string Descricao { get; private set; }
 
-        public string LimiteIdenizacao{ get; init; }
+        public string LimiteIdenizacao { get; private set; }
 
-        public decimal Premio { get; init; }
+        public decimal Premio { get; private set; }
 
-        public bool Franquia { get; init; }
-        public decimal ValorFranquia { get; init; }
+        public bool Franquia { get; private set; }
+        public decimal ValorFranquia { get; private set; }
 
         public Cobertura(string descricao, string limiteIdenizacao, decimal premio, bool franquia, decimal valorFranquia)
         {

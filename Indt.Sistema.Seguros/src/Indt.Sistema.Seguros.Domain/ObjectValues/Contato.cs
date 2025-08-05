@@ -1,11 +1,9 @@
 ﻿namespace Indt.Sistema.Seguros.Domain.ObjectValues
 {
-    public class Contato
+    public record Contato(string Numero, string Ddd, string Email)
     {
-        public string Numero { get; set; }
-
-        public string Ddd { get; set; }
-
-        public string Email { get; set; }
+        public string Numero { get; private set; } = Numero;
+        public string Ddd { get; private set; } = Ddd;
+        public string Email { get; private set; } = Email;
     }
 }

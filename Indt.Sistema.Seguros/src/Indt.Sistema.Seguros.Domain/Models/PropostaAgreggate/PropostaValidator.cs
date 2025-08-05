@@ -26,17 +26,9 @@ namespace Indt.Sistema.Seguros.Domain.Models.PropostaAgreggate
                .WithMessage("Informe um valor de porposta válido.")
                .WithErrorCode("VALOR_PROPOSTAVALIDO");
 
-
-            RuleFor(contato => contato.Email)
-                .NotEmpty()
-                .WithMessage("E-mail é obrigatório.")
-                .WithErrorCode("EMAIL_OBRIGATORIO")
-                .EmailAddress()
-                .WithMessage("E-mail inválido.")
-                .WithErrorCode("EMAIL_INVALIDO");
-
-            RuleFor(x => x.Telefone).SetValidator(new TelefoneValidator());
-
+            RuleFor(x => x.Cliente).SetValidator(new ClienteValidator());
+            RuleFor(x => x.Bem).SetValidator(new BemValidator());
+            RuleFor(x => x.Cobertura).SetValidator(new CoberturaValidator());
         }
     }
 }
