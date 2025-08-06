@@ -2,53 +2,43 @@
 using Indt.Sistema.Seguros.Domain.Adapters.Dispatchers;
 using Indt.Sistema.Seguros.Domain.Adapters.Repository;
 using Indt.Sistema.Seguros.Domain.Models.ContratoAgreggate;
-using Indt.Sistema.Seguros.Domain.Shared.Notifications;
 using Serilog;
 
 namespace Indt.Sistema.Seguros.App.Workers.CriarContrato
 {
     public class CriarContratoDispatcher : ICriarContratoDispatcher
     {
-        private readonly IContratoRepository _contratoRepository;
-        private readonly IPropostaRepository _propostaRepository;
-        private readonly INotification _notificacao;
+        private readonly IContratoRepository _contratoRepository;        
         private readonly ILogger _logger;
 
-        public CriarContratoDispatcher(IContratoRepository contratoRepository, INotification notificacao, ILogger logger, IPropostaRepository propostaRepository)
+        public CriarContratoDispatcher(IContratoRepository contratoRepository, ILogger logger)
         {
-            _contratoRepository = contratoRepository;
-            _notificacao = notificacao;
-            _logger = logger;
-            _propostaRepository = propostaRepository;
+            _contratoRepository = contratoRepository;            
+            _logger = logger;            
         }
 
         public async Task CriarContratoAsync(ContratoCriadoCommand contratoCriadoCommand, CancellationToken cancellationToken = default)
         {
+            var mensagemTemplate = $"CriarContratoDispatcher | CriarContratoAsync | Mensagem : {contratoCriadoCommand}";
+            _logger.Information(mensagemTemplate);
+
             var contrato = new Contrato
             (
                 contratoCriadoCommand.Numero,
                 contratoCriadoCommand.DataInicial,
                 contratoCriadoCommand.DataFinal,
-                contratoCriadoCommand.NumeroPorposta,
+                contratoCriadoCommand.PropostaId,
                 contratoCriadoCommand.Valor,
                 contratoCriadoCommand.Prazo
             );
 
             var valorParcela = contrato.CalcularValorParcela(contrato.Valor, contrato.Prazo);
-            contrato.GerarParcelas(valorParcela, contrato.Prazo);
+            contrato.GerarParcelas(valorParcela, contrato.Prazo);            
 
-            var proposta = await _propostaRepository.ObterPorNumeroAsync(contrato.NumeroPorposta, cancellationToken);
+            await _contratoRepository.CriarAsync(contrato, contratoCriadoCommand.PropostaId, cancellationToken);
 
-            if (proposta == null)
-            {
-                var mensagem = "Proposta não econtrada";
-                var mensagemTemplate = $"CriarContratoDispatcher | CriarContratoAsync | Mensagem : {mensagem}";
-                _logger.Warning(mensagemTemplate);
-                _notificacao.AddNotificacao("PROPOSTA_NAOENCONTRADA", mensagem);
-                return;
-            }
-
-            await _contratoRepository.CriarAsync(contrato, proposta.Id.Value, cancellationToken);
+            var mensagemContratoCriado = $"CriarContratoDispatcher | CriarContratoAsync | Mensagem : Contrato criado {contrato.Id}";
+            _logger.Information(mensagemContratoCriado);
         }
     }
 }

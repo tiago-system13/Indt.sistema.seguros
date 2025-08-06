@@ -4,16 +4,14 @@
     {
         public int Numero { get; set; }
 
-        public DateTime DataInicial { get; set; }
+        public DateTimeOffset DataInicial { get; set; }
 
-        public DateTime DataFinal { get; set; }
-
-        public int NumeroPorposta { get; set; }
+        public DateTimeOffset DataFinal { get; set; }        
 
         public decimal Valor { get; set; }
 
         public int Prazo { get; set; }
 
-        public int NumeroProposta { get; set; }        
+        public Guid PropostaId { get; set; }        
     }
 }

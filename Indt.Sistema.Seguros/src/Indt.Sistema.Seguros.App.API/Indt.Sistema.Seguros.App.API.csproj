@@ -14,11 +14,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Propostas\AtualizarProposta\" />
-    <Folder Include="Propostas\ObterProposta\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\Indt.Sistema.Seguros.Domain\Indt.Sistema.Seguros.Domain.csproj" />
   </ItemGroup>
 

@@ -27,7 +27,7 @@ namespace Indt.Sistema.Seguros.App.API.Propostas.CriarProposta
                 return new CriarPropostaResponse(Guid.Empty);
             }
 
-            return new CriarPropostaResponse((await _propostaRepository.CriarAsync(proposta, cancellationToken)).Value);
+            return new CriarPropostaResponse((await _propostaRepository.CriarAsync(proposta, cancellationToken)));
         }
 
         private static Proposta PropostaMapper(CriarPropostaRequest request)

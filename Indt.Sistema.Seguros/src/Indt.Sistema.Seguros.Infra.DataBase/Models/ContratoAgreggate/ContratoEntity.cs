@@ -14,9 +14,9 @@ namespace Indt.Sistema.Seguros.Infra.DataBase.Models.ContratoAgreggate
 
         public Guid PropostaId { get; private set; } 
 
-        public DateTime DataInicial { get; private set; } 
+        public DateTimeOffset DataInicial { get; private set; } 
 
-        public DateTime DataFinal { get; private set; } 
+        public DateTimeOffset DataFinal { get; private set; } 
 
         public decimal Valor { get; private set; } 
 
@@ -26,7 +26,7 @@ namespace Indt.Sistema.Seguros.Infra.DataBase.Models.ContratoAgreggate
 
         public virtual List<ParcelaEntity> Parcelas { get; private set; }
 
-        public ContratoEntity(Guid id, DateTime dataDeCriacao,int numero, Guid propostaId, DateTime dataInicial, DateTime dataFinal, decimal valor, int prazo)
+        public ContratoEntity(Guid id, DateTime dataDeCriacao,int numero, Guid propostaId, DateTimeOffset dataInicial, DateTimeOffset dataFinal, decimal valor, int prazo)
         {
             Id = id;
             DataDeCriacao = dataDeCriacao;       

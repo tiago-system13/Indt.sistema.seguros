@@ -1,6 +1,7 @@
 ﻿using Indt.Sistema.Seguros.Domain.Adapters.Repository;
 using Indt.Sistema.Seguros.Domain.Models.PropostaAgreggate;
 using Indt.Sistema.Seguros.Domain.ObjectValues;
+using Indt.Sistema.Seguros.Domain.Shared;
 using Indt.Sistema.Seguros.Domain.Shared.Enums;
 using Indt.Sistema.Seguros.Domain.Shared.Notifications;
 using Indt.Sistema.Seguros.Infra.DataBase.EntityFramework;
@@ -58,14 +59,14 @@ namespace Indt.Sistema.Seguros.Infra.DataBase.Models.PropostaAgreggate
             _context.Update(propostaEntity);
         }
 
-        public async ValueTask<Guid?> CriarAsync(Proposta proposta, CancellationToken cancellationToken = default)
+        public async ValueTask<Guid> CriarAsync(Proposta proposta, CancellationToken cancellationToken = default)
         {
             var propostaEntity = MapearPropostaEntity(proposta);
             await _context.Propostas.AddAsync(propostaEntity, cancellationToken);
-            return propostaEntity.Id;
+            return propostaEntity.Id.Value;
         }
 
-        public async ValueTask<Proposta?> ObterPorIdAsync(Guid id, CancellationToken cancellationToken = default)
+        public async ValueTask<Proposta> ObterPorIdAsync(Guid id, CancellationToken cancellationToken = default)
         {
             var propostaEntity = await _context.Propostas.FirstOrDefaultAsync(x=> x.Id == id, cancellationToken);
 
@@ -81,13 +82,35 @@ namespace Indt.Sistema.Seguros.Infra.DataBase.Models.PropostaAgreggate
             return MapearProposta(propostaEntity);
         }
 
-        public async ValueTask<Proposta?> ObterPorNumeroAsync(int numero, CancellationToken cancellationToken = default)
+        public async ValueTask<Proposta> ObterPorNumeroAsync(int numero, CancellationToken cancellationToken = default)
         {
             var propostaEntity = await _context.Propostas.FirstOrDefaultAsync(x => x.Numero == numero, cancellationToken);
 
             if (propostaEntity == null) return default;
 
             return MapearProposta(propostaEntity);
+        }
+
+        public async ValueTask<List<Proposta>> ListarAsync(FiltroPropostas filtroPropostas, CancellationToken cancellationToken = default)
+        {
+            var query = _context.Propostas.AsNoTracking();
+
+
+            if (filtroPropostas.DataInicial != DateTimeOffset.MinValue && filtroPropostas.DataFim != DateTimeOffset.MinValue)
+                query = query.Where(x => filtroPropostas.DataInicial >= x.DataDeCriacao && x.DataDeCriacao <= filtroPropostas.DataFim);
+            
+            if (filtroPropostas.StatusProposta != null)
+                query = query.Where(x => x.StatusProposta == (int)filtroPropostas.StatusProposta.Value);
+
+            if (filtroPropostas.Numero > 0)
+                query = query.Where(x => x.Numero == filtroPropostas.Numero);
+
+
+            query = query.Skip((filtroPropostas.Pagina - 1) * filtroPropostas.ItensPorPagina).Take(filtroPropostas.ItensPorPagina);
+
+            var propostas = await query.ToListAsync(cancellationToken);
+
+            return propostas.Select(x=> MapearProposta(x)).ToList();
         }
 
         private PropostaEntity MapearPropostaEntity(Proposta proposta)
@@ -215,6 +238,6 @@ namespace Indt.Sistema.Seguros.Infra.DataBase.Models.PropostaAgreggate
 
 
             }
-        }
+        }       
     }
 }

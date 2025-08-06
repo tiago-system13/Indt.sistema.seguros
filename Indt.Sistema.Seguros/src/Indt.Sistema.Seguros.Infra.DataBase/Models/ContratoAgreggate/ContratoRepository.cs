@@ -58,7 +58,7 @@ namespace Indt.Sistema.Seguros.Infra.DataBase.Models.ContratoAgreggate
                 contratoEntity.Numero,
                 contratoEntity.DataInicial,
                 contratoEntity.DataFinal,
-                contratoEntity.Proposta.Numero,
+                contratoEntity.Proposta.Id.Value,
                 contratoEntity.Valor,
                 contratoEntity.Prazo
             );

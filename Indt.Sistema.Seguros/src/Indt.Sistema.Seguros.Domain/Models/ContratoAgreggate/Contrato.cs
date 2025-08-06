@@ -6,17 +6,15 @@ namespace Indt.Sistema.Seguros.Domain.Models.ContratoAgreggate
     {
         public int Numero { get; init; }
 
-        public DateTime DataInicial { get; init; }
+        public DateTimeOffset DataInicial { get; init; }
 
-        public DateTime DataFinal { get; init; }
+        public DateTimeOffset DataFinal { get; init; }
 
-        public int NumeroPorposta { get; init; }
+        public Guid PropostaId { get; init; }
 
         public decimal Valor { get; init; }
 
-        public int Prazo { get; init; }
-
-        public int NumeroProposta { get; init; }
+        public int Prazo { get; init; }        
 
         public List<Parcela> Parcelas { get; private set; }
 
@@ -25,12 +23,12 @@ namespace Indt.Sistema.Seguros.Domain.Models.ContratoAgreggate
             Parcelas = new List<Parcela>();
         }
 
-        public Contrato(int numero, DateTime dataInicial, DateTime dataFinal, int numeroPorposta, decimal valor, int prazo )
+        public Contrato(int numero, DateTimeOffset dataInicial, DateTimeOffset dataFinal, Guid propostaId, decimal valor, int prazo )
         {
             Numero = numero;
             DataInicial = dataInicial;
             DataFinal = dataFinal;
-            NumeroPorposta = numeroPorposta;
+            PropostaId = propostaId;
             Valor = valor;
             Prazo = prazo;            
         }
