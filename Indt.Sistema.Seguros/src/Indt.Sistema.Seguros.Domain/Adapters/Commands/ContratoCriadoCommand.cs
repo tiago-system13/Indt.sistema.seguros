@@ -1,11 +1,4 @@
-﻿using Indt.Sistema.Seguros.Domain.Models.ContratoAgreggate;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Indt.Sistema.Seguros.Domain.Adapters.Commands
+﻿namespace Indt.Sistema.Seguros.Domain.Adapters.Commands
 {
     public class ContratoCriadoCommand
     {
@@ -21,8 +14,6 @@ namespace Indt.Sistema.Seguros.Domain.Adapters.Commands
 
         public int Prazo { get; set; }
 
-        public int NumeroProposta { get; set; }
-
-        public List<Parcela> Parcelas { get; set; }
+        public int NumeroProposta { get; set; }        
     }
 }

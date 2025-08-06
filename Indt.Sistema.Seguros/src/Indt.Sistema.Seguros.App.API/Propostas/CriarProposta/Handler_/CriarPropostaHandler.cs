@@ -2,6 +2,7 @@
 using Indt.Sistema.Seguros.Domain.Adapters.Repository;
 using Indt.Sistema.Seguros.Domain.Models.PropostaAgreggate;
 using Indt.Sistema.Seguros.Domain.ObjectValues;
+using Indt.Sistema.Seguros.Domain.Shared.Enums;
 using Indt.Sistema.Seguros.Domain.Shared.Notifications;
 
 namespace Indt.Sistema.Seguros.App.API.Propostas.CriarProposta
@@ -36,7 +37,7 @@ namespace Indt.Sistema.Seguros.App.API.Propostas.CriarProposta
                 request.Numero,
                 request.DataInicio,
                 request.DataFim,
-                request.StatusProposta,
+                StatusProposta.Cadastrada,
                 request.TipoSeguro,
                 request.Valor,
                 request.Prazo,

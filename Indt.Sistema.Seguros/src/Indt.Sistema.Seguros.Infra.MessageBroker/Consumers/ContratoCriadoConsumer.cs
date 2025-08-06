@@ -1,18 +1,21 @@
 ﻿using Indt.Sistema.Seguros.Domain.Adapters.Commands;
+using Indt.Sistema.Seguros.Domain.Adapters.Dispatchers;
 using MassTransit;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Indt.Sistema.Seguros.Infra.MessageBroker.Consumers
 {
     public class ContratoCriadoConsumer : IConsumer<ContratoCriadoCommand>
     {
-        public Task Consume(ConsumeContext<ContratoCriadoCommand> context)
+        private readonly ICriarContratoDispatcher _criarContratoDispatcher;
+
+        public ContratoCriadoConsumer(ICriarContratoDispatcher criarContratoDispatcher)
         {
-            throw new NotImplementedException();
+            _criarContratoDispatcher = criarContratoDispatcher;
+        }
+
+        public async Task Consume(ConsumeContext<ContratoCriadoCommand> context)
+        {
+            await _criarContratoDispatcher.CriarContratoAsync(context?.Message);
         }
     }
 }

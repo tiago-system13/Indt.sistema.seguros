@@ -25,14 +25,14 @@ namespace Indt.Sistema.Seguros.Domain.Models.ContratoAgreggate
             Parcelas = new List<Parcela>();
         }
 
-        public Contrato(int numero, DateTime dataInicial, DateTime dataFinal, int numeroPorposta, decimal valor, int prazo)
+        public Contrato(int numero, DateTime dataInicial, DateTime dataFinal, int numeroPorposta, decimal valor, int prazo )
         {
             Numero = numero;
             DataInicial = dataInicial;
             DataFinal = dataFinal;
             NumeroPorposta = numeroPorposta;
             Valor = valor;
-            Prazo = prazo;
+            Prazo = prazo;            
         }
 
         public decimal CalcularValorParcela(decimal valor, int prazo)

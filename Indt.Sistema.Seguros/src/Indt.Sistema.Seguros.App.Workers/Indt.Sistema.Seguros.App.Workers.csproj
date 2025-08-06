@@ -6,4 +6,12 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+  <PackageReference Include="Serilog" Version="3.1.1" />
+  </ItemGroup>
+  
+  <ItemGroup>
+    <ProjectReference Include="..\Indt.Sistema.Seguros.Domain\Indt.Sistema.Seguros.Domain.csproj" />
+  </ItemGroup>
+
 </Project>
