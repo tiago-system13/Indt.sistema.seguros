@@ -1,0 +1,93 @@
+version: '3.4'
+
+services:
+  indt.sistema.seguros.contratos.api:
+    image: ${DOCKER_REGISTRY-}indtsistemaseguroscontratosapi
+    build:
+      context: .
+      dockerfile: src/Indt.Sistema.Seguros.Contratos.API/Dockerfile
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_HTTP_PORTS=8000
+      - ASPNETCORE_HTTPS_PORTS=8001 
+    volumes:
+      - ${APPDATA}/Microsoft/UserSecrets:/home/app/.microsoft/usersecrets:ro
+      - ${APPDATA}/ASP.NET/Https:/home/app/.aspnet/https:ro
+    depends_on:
+    - mssql-server
+    ports:
+    - "5021:8001"
+    - "5011:8000" 
+    mem_limit: 512m
+    mem_reservation: 128M
+    cpus: 0.3 
+  indt.sistema.seguros.proposta.api:
+    image: ${DOCKER_REGISTRY-}indtsistemasegurospropostaapi
+    build:
+      context: .
+      dockerfile: src/Indt.Sistema.Seguros.Proposta.API/Dockerfile
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_HTTP_PORTS=8000
+      - ASPNETCORE_HTTPS_PORTS=8001 
+    volumes:
+      - ${APPDATA}/Microsoft/UserSecrets:/home/app/.microsoft/usersecrets:ro
+      - ${APPDATA}/ASP.NET/Https:/home/app/.aspnet/https:ro
+    depends_on:
+    - mssql-server
+    ports:
+    - "5020:8001"
+    - "5010:8000" 
+    mem_limit: 512m
+    mem_reservation: 128M
+    cpus: 0.3 
+  indt.sistema.seguros.contratos.workers:
+    image: ${DOCKER_REGISTRY-}indtsistemaseguroscontratosworkers
+    build:
+      context: .
+      dockerfile: src/Indt.Sistema.Seguros.Contratos.Workers/Dockerfile
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_HTTP_PORTS=8000
+      - ASPNETCORE_HTTPS_PORTS=8001 
+    volumes:
+      - ${APPDATA}/Microsoft/UserSecrets:/home/app/.microsoft/usersecrets:ro
+      - ${APPDATA}/ASP.NET/Https:/home/app/.aspnet/https:ro
+    depends_on:
+    - mssql-server
+    ports:
+    - "5030:8001"
+    - "5040:8000" 
+    mem_limit: 512m
+    mem_reservation: 128M
+    cpus: 0.3
+  mssql-server:
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    hostname: "SqlServer"
+    environment:
+      MSSQL_SA_PASSWORD: indtseguros@123
+      ACCEPT_EULA: "Y"
+      MSSQL_PID: "Developer"
+    ports:
+      - "1433:1433"
+  mssqltools:
+    image: mcr.microsoft.com/mssql-tools
+    depends_on:
+      - mssql-server
+    volumes:
+      - ./local/compose/sqlserver/createdatabase.sql:/tmp/createdatabase.sql
+      - ./local/compose/sqlserver/criandotabelas.sql:/tmp/criandotabelas.sql
+      - ./local/compose/sqlserver/init-contato.sh:/tmp/init-contato.sh
+    command: /bin/bash ./tmp/init-contato.sh
+  rabbitmq-seguros:
+    build:
+      context: ./local/compose/rabbitmq
+      dockerfile: Dockerfile
+    container_name: rabbitmq
+    ports:
+     - 5672:5672
+     - 15672:15672
+
+networks:
+ minha-rede:
+  driver: bridge 

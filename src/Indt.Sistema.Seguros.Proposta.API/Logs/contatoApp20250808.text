@@ -1,0 +1,697 @@
+2025-08-08T12:07:36.8942944+00:00 [ERR] (ContatoApp//) "Ops, erro interno do servidor" | "An exception has been raised that is likely due to a transient failure. Consider enabling transient error resiliency by adding 'EnableRetryOnFailure' to the 'UseSqlServer' call."
+System.InvalidOperationException: An exception has been raised that is likely due to a transient failure. Consider enabling transient error resiliency by adding 'EnableRetryOnFailure' to the 'UseSqlServer' call.
+ ---> Microsoft.Data.SqlClient.SqlException (0x80131904): Cannot open database "IDTSeguro" requested by the login. The login failed.
+Login failed for user 'sa'.
+   at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at Microsoft.Data.SqlClient.TdsParser.Run(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.CompleteLogin(Boolean enlistOK)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.AttemptOneLogin(ServerInfo serverInfo, String newPassword, SecureString newSecurePassword, Boolean ignoreSniOpenTimeout, TimeoutTimer timeout, Boolean withFailover)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.LoginNoFailover(ServerInfo serverInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString connectionOptions, SqlCredential credential, TimeoutTimer timeout)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.OpenLoginEnlist(TimeoutTimer timeout, SqlConnectionString connectionOptions, SqlCredential credential, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds..ctor(DbConnectionPoolIdentity identity, SqlConnectionString connectionOptions, SqlCredential credential, Object providerInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString userConnectionOptions, SessionData reconnectSessionData, Boolean applyTransientFaultHandling, String accessToken, DbConnectionPool pool)
+   at Microsoft.Data.SqlClient.SqlConnectionFactory.CreateConnection(DbConnectionOptions options, DbConnectionPoolKey poolKey, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningConnection, DbConnectionOptions userOptions)
+   at Microsoft.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(DbConnectionPool pool, DbConnection owningObject, DbConnectionOptions options, DbConnectionPoolKey poolKey, DbConnectionOptions userOptions)
+   at Microsoft.Data.ProviderBase.DbConnectionPool.CreateObject(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   at Microsoft.Data.ProviderBase.DbConnectionPool.UserCreateRequest(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   at Microsoft.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at Microsoft.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at Microsoft.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal& connection)
+   at Microsoft.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at Microsoft.Data.ProviderBase.DbConnectionClosed.TryOpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at Microsoft.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry, SqlConnectionOverrides overrides)
+   at Microsoft.Data.SqlClient.SqlConnection.Open(SqlConnectionOverrides overrides)
+   at Microsoft.Data.SqlClient.SqlConnection.Open()
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerConnection.OpenDbConnection(Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenInternal(Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.Open(Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReader(RelationalCommandParameterObject parameterObject)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.Enumerator.InitializeReader(Enumerator enumerator)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.Enumerator.<>c.<MoveNext>b__21_0(DbContext _, Enumerator enumerator)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+ClientConnectionId:c5bda02e-fd77-4b14-9b7a-d9aa91d54727
+Error Number:4060,State:1,Class:11
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.Enumerator.MoveNext()
+   at System.Linq.Enumerable.TryGetSingle[TSource](IEnumerable`1 source, Boolean& found)
+   at lambda_method15(Closure, QueryContext)
+   at Microsoft.EntityFrameworkCore.Query.Internal.QueryCompiler.Execute[TResult](Expression query)
+   at Microsoft.EntityFrameworkCore.Query.Internal.EntityQueryProvider.Execute[TResult](Expression expression)
+   at Indt.Sistema.Seguros.Infra.DataBase.Models.PropostaAgreggate.PropostaRepository.ListarAsync(FiltroPropostas filtroPropostas, CancellationToken cancellationToken) in C:\projetos\Indt.sistema.seguros\src\Indt.Sistema.Seguros.Infra.DataBase\Models\PropostaAgreggate\PropostaRepository.cs:line 109
+   at Indt.Sistema.Seguros.App.API.Propostas.ListarPropostas.ListarPropostasHandler.Handle(ListarPropostasRequest request, CancellationToken cancellationToken) in C:\projetos\Indt.sistema.seguros\src\Indt.Sistema.Seguros.App.API\Propostas\ListarPropostas\Handler_\ListarPropostasHandler.cs:line 28
+   at Indt.Sistema.Seguros.Proposta.API.Controllers.PropostaController.AlterarSatusProposta(Int32 numero, StatusProposta statusPorposta, DateTimeOffset dataIncial, DateTimeOffset dataFinal, Int32 pagina, Int32 itensPaginas, CancellationToken cancellationToken) in C:\projetos\Indt.sistema.seguros\src\Indt.Sistema.Seguros.Proposta.API\Controller\PropostaController.cs:line 90
+   at lambda_method6(Closure, Object)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|25_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeFilterPipelineAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Indt.Sistema.Seguros.Commons.Middlewares.ErrorHandlingMiddleware.InvokeAsync(HttpContext context) in C:\projetos\Indt.sistema.seguros\src\Indt.Sistema.Seguros.Commons\Middlewares\ErrorHandlingMiddleware.cs:line 23
+2025-08-08T12:07:37.4100047+00:00 [INF] (ContatoApp//) Response Body: "[
+  {
+    \"mensagem\": \"Ops, erro interno do servidor\",
+    \"codigo\": \"ERRO_INTERNO_SERVIDOR\",
+    \"targetSite\": null,
+    \"message\": \"Ops, erro interno do servidor\",
+    \"data\": {},
+    \"innerException\": null,
+    \"helpLink\": null,
+    \"source\": null,
+    \"hResult\": -2146233088,
+    \"stackTrace\": null
+  }
+]"
+2025-08-08T14:40:29.0007110+00:00 [INF] (ContatoApp//) Request Body: "{
+  \"numero\": 3265,
+  \"tipoSeguro\": 1,
+  \"dataInicio\": \"2025-08-06T23:40:10.160Z\",
+  \"dataFim\": \"2032-08-06T23:40:10.160Z\",
+  \"valor\":5000,
+  \"cliente\": {
+    \"documento\": \"5465432\",
+    \"nome\": \"Joaoa Santana\",
+    \"dataNescimento\": \"1968-08-06T23:40:10.160Z\",
+    \"endereco\": {
+      \"numero\": 10,
+      \"logradouro\": \"Rua B\",
+      \"cep\": \"49369521\",
+      \"bairro\": \"Jabotiana\",
+      \"cidade\": \"Aracaju\",
+      \"estado\": \"SE\"
+    },
+    \"contato\": {
+      \"numero\": \"988552233\",
+      \"ddd\": \"79\",
+      \"email\": \"joao.santana@gmail.com\"
+    }
+  },
+  \"bemMovel\": {
+    \"marca\": \"Yamaha\",
+    \"anoFabricacao\": \"2025\",
+    \"placa\": \"YAN9856\",
+    \"categoria\": 1,
+    \"utilizacao\": \"Lazer\",
+    \"cor\": \"Preta\",
+    \"chassi\": \"23132165321\"
+  },
+  \"cobertura\": {
+    \"descricao\": \"Roubo-Furto-PerdaTotal-Assistencia\",
+    \"limiteIdenizacao\": \"Fipe\",
+    \"premio\": 36000,
+    \"franquia\": true,
+    \"valorFranquia\": 2000
+  }
+}"
+2025-08-08T14:40:36.4862551+00:00 [INF] (ContatoApp//) Response Body: "{\"propostaId\":\"480fb943-f7ae-489d-83b6-ddd41c8ea711\",\"sucesso\":false,\"mensagem\":null}"
+2025-08-08T14:41:27.0886712+00:00 [ERR] (ContatoApp//) "Ops, erro interno do servidor" | "No service for type 'MassTransit.IBusControl' has been registered."
+System.InvalidOperationException: No service for type 'MassTransit.IBusControl' has been registered.
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService(IServiceProvider provider, Type serviceType)
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService[T](IServiceProvider provider)
+   at Indt.Sistema.Seguros.App.API.ServiceExtensions.<>c.<AddApplication>b__0_1(IServiceProvider x) in C:\projetos\Indt.sistema.seguros\src\Indt.Sistema.Seguros.App.API\ServiceExtensions.cs:line 22
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteVisitor`2.VisitCallSiteMain(ServiceCallSite callSite, TArgument argument)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitDisposeCache(ServiceCallSite transientCallSite, RuntimeResolverContext context)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteVisitor`2.VisitCallSite(ServiceCallSite callSite, TArgument argument)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.Resolve(ServiceCallSite callSite, ServiceProviderEngineScope scope)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.DynamicServiceProviderEngine.<>c__DisplayClass2_0.<RealizeService>b__0(ServiceProviderEngineScope scope)
+   at Microsoft.Extensions.DependencyInjection.ServiceProvider.GetService(ServiceIdentifier serviceIdentifier, ServiceProviderEngineScope serviceProviderEngineScope)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.ServiceProviderEngineScope.GetService(Type serviceType)
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService(IServiceProvider provider, Type serviceType)
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService[T](IServiceProvider provider)
+   at MediatR.Wrappers.RequestHandlerWrapperImpl`2.<>c__DisplayClass1_0.<Handle>g__Handler|0()
+   at MediatR.Wrappers.RequestHandlerWrapperImpl`2.Handle(IRequest`1 request, IServiceProvider serviceProvider, CancellationToken cancellationToken)
+   at MediatR.Mediator.Send[TResponse](IRequest`1 request, CancellationToken cancellationToken)
+   at Indt.Sistema.Seguros.Proposta.API.Controllers.PropostaController.AlterarSatusProposta(AlterarStatusPropostaRequest request, CancellationToken cancellationToken) in C:\projetos\Indt.sistema.seguros\src\Indt.Sistema.Seguros.Proposta.API\Controller\PropostaController.cs:line 55
+   at lambda_method377(Closure, Object)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|25_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeFilterPipelineAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Indt.Sistema.Seguros.Commons.Middlewares.ErrorHandlingMiddleware.InvokeAsync(HttpContext context) in C:\projetos\Indt.sistema.seguros\src\Indt.Sistema.Seguros.Commons\Middlewares\ErrorHandlingMiddleware.cs:line 23
+2025-08-08T14:41:27.1938092+00:00 [INF] (ContatoApp//) Response Body: "[
+  {
+    \"mensagem\": \"Ops, erro interno do servidor\",
+    \"codigo\": \"ERRO_INTERNO_SERVIDOR\",
+    \"targetSite\": null,
+    \"message\": \"Ops, erro interno do servidor\",
+    \"data\": {},
+    \"innerException\": null,
+    \"helpLink\": null,
+    \"source\": null,
+    \"hResult\": -2146233088,
+    \"stackTrace\": null
+  }
+]"
+2025-08-08T14:42:58.4814472+00:00 [ERR] (ContatoApp//) "Ops, erro interno do servidor" | "No service for type 'MassTransit.IBusControl' has been registered."
+System.InvalidOperationException: No service for type 'MassTransit.IBusControl' has been registered.
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService(IServiceProvider provider, Type serviceType)
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService[T](IServiceProvider provider)
+   at Indt.Sistema.Seguros.App.API.ServiceExtensions.<>c.<AddApplication>b__0_1(IServiceProvider x) in C:\projetos\Indt.sistema.seguros\src\Indt.Sistema.Seguros.App.API\ServiceExtensions.cs:line 22
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteVisitor`2.VisitCallSiteMain(ServiceCallSite callSite, TArgument argument)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitDisposeCache(ServiceCallSite transientCallSite, RuntimeResolverContext context)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteVisitor`2.VisitCallSite(ServiceCallSite callSite, TArgument argument)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.Resolve(ServiceCallSite callSite, ServiceProviderEngineScope scope)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.DynamicServiceProviderEngine.<>c__DisplayClass2_0.<RealizeService>b__0(ServiceProviderEngineScope scope)
+   at Microsoft.Extensions.DependencyInjection.ServiceProvider.GetService(ServiceIdentifier serviceIdentifier, ServiceProviderEngineScope serviceProviderEngineScope)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.ServiceProviderEngineScope.GetService(Type serviceType)
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService(IServiceProvider provider, Type serviceType)
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService[T](IServiceProvider provider)
+   at MediatR.Wrappers.RequestHandlerWrapperImpl`2.<>c__DisplayClass1_0.<Handle>g__Handler|0()
+   at MediatR.Wrappers.RequestHandlerWrapperImpl`2.Handle(IRequest`1 request, IServiceProvider serviceProvider, CancellationToken cancellationToken)
+   at MediatR.Mediator.Send[TResponse](IRequest`1 request, CancellationToken cancellationToken)
+   at Indt.Sistema.Seguros.Proposta.API.Controllers.PropostaController.AlterarSatusProposta(AlterarStatusPropostaRequest request, CancellationToken cancellationToken) in C:\projetos\Indt.sistema.seguros\src\Indt.Sistema.Seguros.Proposta.API\Controller\PropostaController.cs:line 55
+   at lambda_method377(Closure, Object)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|25_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeFilterPipelineAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Indt.Sistema.Seguros.Commons.Middlewares.ErrorHandlingMiddleware.InvokeAsync(HttpContext context) in C:\projetos\Indt.sistema.seguros\src\Indt.Sistema.Seguros.Commons\Middlewares\ErrorHandlingMiddleware.cs:line 23
+2025-08-08T14:42:58.4875927+00:00 [INF] (ContatoApp//) Response Body: "[
+  {
+    \"mensagem\": \"Ops, erro interno do servidor\",
+    \"codigo\": \"ERRO_INTERNO_SERVIDOR\",
+    \"targetSite\": null,
+    \"message\": \"Ops, erro interno do servidor\",
+    \"data\": {},
+    \"innerException\": null,
+    \"helpLink\": null,
+    \"source\": null,
+    \"hResult\": -2146233088,
+    \"stackTrace\": null
+  }
+]"
+2025-08-08T11:51:43.0364279-03:00 [ERR] (ContatoApp//) "Ops, erro interno do servidor" | "An exception has been raised that is likely due to a transient failure. Consider enabling transient error resiliency by adding 'EnableRetryOnFailure' to the 'UseSqlServer' call."
+System.InvalidOperationException: An exception has been raised that is likely due to a transient failure. Consider enabling transient error resiliency by adding 'EnableRetryOnFailure' to the 'UseSqlServer' call.
+ ---> Microsoft.Data.SqlClient.SqlException (0x80131904): A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: TCP Provider, error: 0 - Este host não é conhecido.)
+ ---> System.ComponentModel.Win32Exception (11001): Este host não é conhecido.
+   at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParser.Connect(ServerInfo serverInfo, SqlInternalConnectionTds connHandler, Boolean ignoreSniOpenTimeout, Int64 timerExpire, SqlConnectionString connectionOptions, Boolean withFailover)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.AttemptOneLogin(ServerInfo serverInfo, String newPassword, SecureString newSecurePassword, Boolean ignoreSniOpenTimeout, TimeoutTimer timeout, Boolean withFailover)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.LoginNoFailover(ServerInfo serverInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString connectionOptions, SqlCredential credential, TimeoutTimer timeout)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.OpenLoginEnlist(TimeoutTimer timeout, SqlConnectionString connectionOptions, SqlCredential credential, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds..ctor(DbConnectionPoolIdentity identity, SqlConnectionString connectionOptions, SqlCredential credential, Object providerInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString userConnectionOptions, SessionData reconnectSessionData, Boolean applyTransientFaultHandling, String accessToken, DbConnectionPool pool)
+   at Microsoft.Data.SqlClient.SqlConnectionFactory.CreateConnection(DbConnectionOptions options, DbConnectionPoolKey poolKey, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningConnection, DbConnectionOptions userOptions)
+   at Microsoft.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(DbConnectionPool pool, DbConnection owningObject, DbConnectionOptions options, DbConnectionPoolKey poolKey, DbConnectionOptions userOptions)
+   at Microsoft.Data.ProviderBase.DbConnectionPool.CreateObject(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   at Microsoft.Data.ProviderBase.DbConnectionPool.UserCreateRequest(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   at Microsoft.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at Microsoft.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at Microsoft.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal& connection)
+   at Microsoft.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at Microsoft.Data.ProviderBase.DbConnectionClosed.TryOpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at Microsoft.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry, SqlConnectionOverrides overrides)
+   at Microsoft.Data.SqlClient.SqlConnection.Open(SqlConnectionOverrides overrides)
+   at Microsoft.Data.SqlClient.SqlConnection.Open()
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerConnection.OpenDbConnection(Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenInternal(Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.Open(Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReader(RelationalCommandParameterObject parameterObject)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.Enumerator.InitializeReader(Enumerator enumerator)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.Enumerator.<>c.<MoveNext>b__21_0(DbContext _, Enumerator enumerator)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+ClientConnectionId:00000000-0000-0000-0000-000000000000
+Error Number:11001,State:0,Class:20
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.Enumerator.MoveNext()
+   at System.Linq.Enumerable.TryGetSingle[TSource](IEnumerable`1 source, Boolean& found)
+   at lambda_method15(Closure, QueryContext)
+   at Microsoft.EntityFrameworkCore.Query.Internal.QueryCompiler.Execute[TResult](Expression query)
+   at Microsoft.EntityFrameworkCore.Query.Internal.EntityQueryProvider.Execute[TResult](Expression expression)
+   at Indt.Sistema.Seguros.Infra.DataBase.Models.PropostaAgreggate.PropostaRepository.ListarAsync(FiltroPropostas filtroPropostas, CancellationToken cancellationToken) in C:\projetos\Indt.sistema.seguros\src\Indt.Sistema.Seguros.Infra.DataBase\Models\PropostaAgreggate\PropostaRepository.cs:line 109
+   at Indt.Sistema.Seguros.App.API.Propostas.ListarPropostas.ListarPropostasHandler.Handle(ListarPropostasRequest request, CancellationToken cancellationToken) in C:\projetos\Indt.sistema.seguros\src\Indt.Sistema.Seguros.App.API\Propostas\ListarPropostas\Handler_\ListarPropostasHandler.cs:line 28
+   at Indt.Sistema.Seguros.Proposta.API.Controllers.PropostaController.AlterarSatusProposta(Int32 numero, StatusProposta statusPorposta, DateTimeOffset dataIncial, DateTimeOffset dataFinal, Int32 pagina, Int32 itensPaginas, CancellationToken cancellationToken) in C:\projetos\Indt.sistema.seguros\src\Indt.Sistema.Seguros.Proposta.API\Controller\PropostaController.cs:line 90
+   at lambda_method6(Closure, Object)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|25_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeFilterPipelineAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Indt.Sistema.Seguros.Commons.Middlewares.ErrorHandlingMiddleware.InvokeAsync(HttpContext context) in C:\projetos\Indt.sistema.seguros\src\Indt.Sistema.Seguros.Commons\Middlewares\ErrorHandlingMiddleware.cs:line 23
+2025-08-08T11:51:43.1628517-03:00 [INF] (ContatoApp//) Response Body: "[
+  {
+    \"mensagem\": \"Ops, erro interno do servidor\",
+    \"codigo\": \"ERRO_INTERNO_SERVIDOR\",
+    \"targetSite\": null,
+    \"message\": \"Ops, erro interno do servidor\",
+    \"data\": {},
+    \"innerException\": null,
+    \"helpLink\": null,
+    \"source\": null,
+    \"hResult\": -2146233088,
+    \"stackTrace\": null
+  }
+]"
+2025-08-08T11:53:57.3854219-03:00 [INF] (ContatoApp//) Response Body: "{\"propostas\":[{\"numero\":3265,\"tipoSeguro\":1,\"dataInicio\":\"2025-08-06T23:40:10.16+00:00\",\"dataFim\":\"2032-08-06T23:40:10.16+00:00\",\"statusProposta\":0,\"valor\":5000.00,\"prazo\":2557,\"documentoCliente\":\"5465432\",\"nomeCliente\":\"Joaoa Santana\",\"contatoClinete\":\"(79) 988552233\",\"marcaBem\":\"Yamaha\",\"anoFabricacaoBem\":\"2025\",\"placaBem\":\"YAN9856\",\"categoriaBem\":1,\"utilizacaoBem\":\"Lazer\",\"descricaoCobertura\":\"Roubo-Furto-PerdaTotal-Assistencia\",\"limiteIdenizacaoCobertura\":\"Fipe\",\"premioCobertura\":36000.00,\"franquiaCobertura\":true,\"valorFranquiaCobertura\":2000.00}],\"totalPropostas\":1,\"totalPagina\":1,\"sucesso\":false,\"mensagem\":null}"
+2025-08-08T11:55:19.0212999-03:00 [ERR] (ContatoApp//) "Ops, erro interno do servidor" | "No service for type 'MassTransit.IBusControl' has been registered."
+System.InvalidOperationException: No service for type 'MassTransit.IBusControl' has been registered.
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService(IServiceProvider provider, Type serviceType)
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService[T](IServiceProvider provider)
+   at Indt.Sistema.Seguros.App.API.ServiceExtensions.<>c.<AddApplication>b__0_1(IServiceProvider x) in C:\projetos\Indt.sistema.seguros\src\Indt.Sistema.Seguros.App.API\ServiceExtensions.cs:line 22
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitFactory(FactoryCallSite factoryCallSite, RuntimeResolverContext context)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteVisitor`2.VisitCallSiteMain(ServiceCallSite callSite, TArgument argument)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitDisposeCache(ServiceCallSite transientCallSite, RuntimeResolverContext context)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteVisitor`2.VisitCallSite(ServiceCallSite callSite, TArgument argument)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.Resolve(ServiceCallSite callSite, ServiceProviderEngineScope scope)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.DynamicServiceProviderEngine.<>c__DisplayClass2_0.<RealizeService>b__0(ServiceProviderEngineScope scope)
+   at Microsoft.Extensions.DependencyInjection.ServiceProvider.GetService(ServiceIdentifier serviceIdentifier, ServiceProviderEngineScope serviceProviderEngineScope)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.ServiceProviderEngineScope.GetService(Type serviceType)
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService(IServiceProvider provider, Type serviceType)
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService[T](IServiceProvider provider)
+   at MediatR.Wrappers.RequestHandlerWrapperImpl`2.<>c__DisplayClass1_0.<Handle>g__Handler|0()
+   at MediatR.Wrappers.RequestHandlerWrapperImpl`2.Handle(IRequest`1 request, IServiceProvider serviceProvider, CancellationToken cancellationToken)
+   at MediatR.Mediator.Send[TResponse](IRequest`1 request, CancellationToken cancellationToken)
+   at Indt.Sistema.Seguros.Proposta.API.Controllers.PropostaController.AlterarSatusProposta(AlterarStatusPropostaRequest request, CancellationToken cancellationToken) in C:\projetos\Indt.sistema.seguros\src\Indt.Sistema.Seguros.Proposta.API\Controller\PropostaController.cs:line 55
+   at lambda_method41(Closure, Object)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|25_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeFilterPipelineAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Indt.Sistema.Seguros.Commons.Middlewares.ErrorHandlingMiddleware.InvokeAsync(HttpContext context) in C:\projetos\Indt.sistema.seguros\src\Indt.Sistema.Seguros.Commons\Middlewares\ErrorHandlingMiddleware.cs:line 23
+2025-08-08T11:55:19.0475609-03:00 [INF] (ContatoApp//) Response Body: "[
+  {
+    \"mensagem\": \"Ops, erro interno do servidor\",
+    \"codigo\": \"ERRO_INTERNO_SERVIDOR\",
+    \"targetSite\": null,
+    \"message\": \"Ops, erro interno do servidor\",
+    \"data\": {},
+    \"innerException\": null,
+    \"helpLink\": null,
+    \"source\": null,
+    \"hResult\": -2146233088,
+    \"stackTrace\": null
+  }
+]"
+2025-08-08T11:55:50.1254181-03:00 [ERR] (ContatoApp//) "Ops, erro interno do servidor" | "No service for type 'MassTransit.IBusControl' has been registered."
+System.InvalidOperationException: No service for type 'MassTransit.IBusControl' has been registered.
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService(IServiceProvider provider, Type serviceType)
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService[T](IServiceProvider provider)
+   at Indt.Sistema.Seguros.App.API.ServiceExtensions.<>c.<AddApplication>b__0_1(IServiceProvider x) in C:\projetos\Indt.sistema.seguros\src\Indt.Sistema.Seguros.App.API\ServiceExtensions.cs:line 22
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitFactory(FactoryCallSite factoryCallSite, RuntimeResolverContext context)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteVisitor`2.VisitCallSiteMain(ServiceCallSite callSite, TArgument argument)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitDisposeCache(ServiceCallSite transientCallSite, RuntimeResolverContext context)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteVisitor`2.VisitCallSite(ServiceCallSite callSite, TArgument argument)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.Resolve(ServiceCallSite callSite, ServiceProviderEngineScope scope)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.DynamicServiceProviderEngine.<>c__DisplayClass2_0.<RealizeService>b__0(ServiceProviderEngineScope scope)
+   at Microsoft.Extensions.DependencyInjection.ServiceProvider.GetService(ServiceIdentifier serviceIdentifier, ServiceProviderEngineScope serviceProviderEngineScope)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.ServiceProviderEngineScope.GetService(Type serviceType)
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService(IServiceProvider provider, Type serviceType)
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService[T](IServiceProvider provider)
+   at MediatR.Wrappers.RequestHandlerWrapperImpl`2.<>c__DisplayClass1_0.<Handle>g__Handler|0()
+   at MediatR.Wrappers.RequestHandlerWrapperImpl`2.Handle(IRequest`1 request, IServiceProvider serviceProvider, CancellationToken cancellationToken)
+   at MediatR.Mediator.Send[TResponse](IRequest`1 request, CancellationToken cancellationToken)
+   at Indt.Sistema.Seguros.Proposta.API.Controllers.PropostaController.AlterarSatusProposta(AlterarStatusPropostaRequest request, CancellationToken cancellationToken) in C:\projetos\Indt.sistema.seguros\src\Indt.Sistema.Seguros.Proposta.API\Controller\PropostaController.cs:line 55
+   at lambda_method41(Closure, Object)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|25_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeFilterPipelineAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Indt.Sistema.Seguros.Commons.Middlewares.ErrorHandlingMiddleware.InvokeAsync(HttpContext context) in C:\projetos\Indt.sistema.seguros\src\Indt.Sistema.Seguros.Commons\Middlewares\ErrorHandlingMiddleware.cs:line 23
+2025-08-08T11:55:50.1308816-03:00 [INF] (ContatoApp//) Response Body: "[
+  {
+    \"mensagem\": \"Ops, erro interno do servidor\",
+    \"codigo\": \"ERRO_INTERNO_SERVIDOR\",
+    \"targetSite\": null,
+    \"message\": \"Ops, erro interno do servidor\",
+    \"data\": {},
+    \"innerException\": null,
+    \"helpLink\": null,
+    \"source\": null,
+    \"hResult\": -2146233088,
+    \"stackTrace\": null
+  }
+]"
+2025-08-08T11:57:04.2719311-03:00 [ERR] (ContatoApp//) "Ops, erro interno do servidor" | "No service for type 'MassTransit.IBusControl' has been registered."
+System.InvalidOperationException: No service for type 'MassTransit.IBusControl' has been registered.
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService(IServiceProvider provider, Type serviceType)
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService[T](IServiceProvider provider)
+   at Indt.Sistema.Seguros.App.API.ServiceExtensions.<>c.<AddApplication>b__0_1(IServiceProvider x) in C:\projetos\Indt.sistema.seguros\src\Indt.Sistema.Seguros.App.API\ServiceExtensions.cs:line 22
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitFactory(FactoryCallSite factoryCallSite, RuntimeResolverContext context)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteVisitor`2.VisitCallSiteMain(ServiceCallSite callSite, TArgument argument)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitDisposeCache(ServiceCallSite transientCallSite, RuntimeResolverContext context)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteVisitor`2.VisitCallSite(ServiceCallSite callSite, TArgument argument)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.Resolve(ServiceCallSite callSite, ServiceProviderEngineScope scope)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.DynamicServiceProviderEngine.<>c__DisplayClass2_0.<RealizeService>b__0(ServiceProviderEngineScope scope)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.ServiceProviderEngineScope.GetService(Type serviceType)
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService(IServiceProvider provider, Type serviceType)
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService[T](IServiceProvider provider)
+   at MediatR.Wrappers.RequestHandlerWrapperImpl`2.<>c__DisplayClass1_0.<Handle>g__Handler|0()
+   at MediatR.Wrappers.RequestHandlerWrapperImpl`2.Handle(IRequest`1 request, IServiceProvider serviceProvider, CancellationToken cancellationToken)
+   at MediatR.Mediator.Send[TResponse](IRequest`1 request, CancellationToken cancellationToken)
+   at Indt.Sistema.Seguros.Proposta.API.Controllers.PropostaController.AlterarSatusProposta(AlterarStatusPropostaRequest request, CancellationToken cancellationToken) in C:\projetos\Indt.sistema.seguros\src\Indt.Sistema.Seguros.Proposta.API\Controller\PropostaController.cs:line 55
+   at lambda_method41(Closure, Object)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|25_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeFilterPipelineAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Indt.Sistema.Seguros.Commons.Middlewares.ErrorHandlingMiddleware.InvokeAsync(HttpContext context) in C:\projetos\Indt.sistema.seguros\src\Indt.Sistema.Seguros.Commons\Middlewares\ErrorHandlingMiddleware.cs:line 23
+2025-08-08T11:57:04.2762692-03:00 [INF] (ContatoApp//) Response Body: "[
+  {
+    \"mensagem\": \"Ops, erro interno do servidor\",
+    \"codigo\": \"ERRO_INTERNO_SERVIDOR\",
+    \"targetSite\": null,
+    \"message\": \"Ops, erro interno do servidor\",
+    \"data\": {},
+    \"innerException\": null,
+    \"helpLink\": null,
+    \"source\": null,
+    \"hResult\": -2146233088,
+    \"stackTrace\": null
+  }
+]"
+2025-08-08T15:25:18.8630873+00:00 [ERR] (ContatoApp//) "Ops, erro interno do servidor" | "Cannot open database \"IDTSeguro\" requested by the login. The login failed.
+Login failed for user 'sa'."
+Microsoft.Data.SqlClient.SqlException (0x80131904): Cannot open database "IDTSeguro" requested by the login. The login failed.
+Login failed for user 'sa'.
+   at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at Microsoft.Data.SqlClient.TdsParser.Run(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.CompleteLogin(Boolean enlistOK)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.AttemptOneLogin(ServerInfo serverInfo, String newPassword, SecureString newSecurePassword, Boolean ignoreSniOpenTimeout, TimeoutTimer timeout, Boolean withFailover)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.LoginNoFailover(ServerInfo serverInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString connectionOptions, SqlCredential credential, TimeoutTimer timeout)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.OpenLoginEnlist(TimeoutTimer timeout, SqlConnectionString connectionOptions, SqlCredential credential, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds..ctor(DbConnectionPoolIdentity identity, SqlConnectionString connectionOptions, SqlCredential credential, Object providerInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString userConnectionOptions, SessionData reconnectSessionData, Boolean applyTransientFaultHandling, String accessToken, DbConnectionPool pool)
+   at Microsoft.Data.SqlClient.SqlConnectionFactory.CreateConnection(DbConnectionOptions options, DbConnectionPoolKey poolKey, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningConnection, DbConnectionOptions userOptions)
+   at Microsoft.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(DbConnectionPool pool, DbConnection owningObject, DbConnectionOptions options, DbConnectionPoolKey poolKey, DbConnectionOptions userOptions)
+   at Microsoft.Data.ProviderBase.DbConnectionPool.CreateObject(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   at Microsoft.Data.ProviderBase.DbConnectionPool.UserCreateRequest(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   at Microsoft.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at Microsoft.Data.ProviderBase.DbConnectionPool.WaitForPendingOpen()
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenInternalAsync(Boolean errorsExpected, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenInternalAsync(Boolean errorsExpected, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenAsync(CancellationToken cancellationToken, Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.BeginTransactionAsync(IsolationLevel isolationLevel, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.BeginTransactionAsync(CancellationToken cancellationToken)
+   at Indt.Sistema.Seguros.Infra.DataBase.EntityFramework.UnitOfWork.BeginTransaction(CancellationToken cancellationToken) in C:\projetos\Indt.sistema.seguros\src\Indt.Sistema.Seguros.Infra.DataBase\EntityFramework\UnitOfWork.cs:line 19
+   at Indt.Sistema.Seguros.App.API.Propostas.AlterarStatusProposta.AlterarStatusPropostaHandler.Handle(AlterarStatusPropostaRequest request, CancellationToken cancellationToken) in C:\projetos\Indt.sistema.seguros\src\Indt.Sistema.Seguros.App.API\Propostas\AlterarStatusProposta\Handler_\AlterarStatusPropostaHandler.cs:line 30
+   at Indt.Sistema.Seguros.Proposta.API.Controllers.PropostaController.AlterarSatusProposta(AlterarStatusPropostaRequest request, CancellationToken cancellationToken) in C:\projetos\Indt.sistema.seguros\src\Indt.Sistema.Seguros.Proposta.API\Controller\PropostaController.cs:line 55
+   at lambda_method6(Closure, Object)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|25_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Indt.Sistema.Seguros.Commons.Middlewares.ErrorHandlingMiddleware.InvokeAsync(HttpContext context) in C:\projetos\Indt.sistema.seguros\src\Indt.Sistema.Seguros.Commons\Middlewares\ErrorHandlingMiddleware.cs:line 23
+ClientConnectionId:1e10b948-df94-46aa-9b10-302cc657f91a
+Error Number:4060,State:1,Class:11
+2025-08-08T15:25:19.3728443+00:00 [INF] (ContatoApp//) Response Body: "[
+  {
+    \"mensagem\": \"Ops, erro interno do servidor\",
+    \"codigo\": \"ERRO_INTERNO_SERVIDOR\",
+    \"targetSite\": null,
+    \"message\": \"Ops, erro interno do servidor\",
+    \"data\": {},
+    \"innerException\": null,
+    \"helpLink\": null,
+    \"source\": null,
+    \"hResult\": -2146233088,
+    \"stackTrace\": null
+  }
+]"
+2025-08-08T15:28:58.0628810+00:00 [ERR] (ContatoApp//) "Ops, erro interno do servidor" | "An exception has been raised that is likely due to a transient failure. Consider enabling transient error resiliency by adding 'EnableRetryOnFailure' to the 'UseSqlServer' call."
+System.InvalidOperationException: An exception has been raised that is likely due to a transient failure. Consider enabling transient error resiliency by adding 'EnableRetryOnFailure' to the 'UseSqlServer' call.
+ ---> Microsoft.Data.SqlClient.SqlException (0x80131904): Cannot open database "IDTSeguro" requested by the login. The login failed.
+Login failed for user 'sa'.
+   at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at Microsoft.Data.SqlClient.TdsParser.Run(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.CompleteLogin(Boolean enlistOK)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.AttemptOneLogin(ServerInfo serverInfo, String newPassword, SecureString newSecurePassword, Boolean ignoreSniOpenTimeout, TimeoutTimer timeout, Boolean withFailover)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.LoginNoFailover(ServerInfo serverInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString connectionOptions, SqlCredential credential, TimeoutTimer timeout)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.OpenLoginEnlist(TimeoutTimer timeout, SqlConnectionString connectionOptions, SqlCredential credential, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds..ctor(DbConnectionPoolIdentity identity, SqlConnectionString connectionOptions, SqlCredential credential, Object providerInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString userConnectionOptions, SessionData reconnectSessionData, Boolean applyTransientFaultHandling, String accessToken, DbConnectionPool pool)
+   at Microsoft.Data.SqlClient.SqlConnectionFactory.CreateConnection(DbConnectionOptions options, DbConnectionPoolKey poolKey, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningConnection, DbConnectionOptions userOptions)
+   at Microsoft.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(DbConnectionPool pool, DbConnection owningObject, DbConnectionOptions options, DbConnectionPoolKey poolKey, DbConnectionOptions userOptions)
+   at Microsoft.Data.ProviderBase.DbConnectionPool.CreateObject(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   at Microsoft.Data.ProviderBase.DbConnectionPool.UserCreateRequest(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   at Microsoft.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at Microsoft.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at Microsoft.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal& connection)
+   at Microsoft.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at Microsoft.Data.ProviderBase.DbConnectionClosed.TryOpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at Microsoft.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry, SqlConnectionOverrides overrides)
+   at Microsoft.Data.SqlClient.SqlConnection.Open(SqlConnectionOverrides overrides)
+   at Microsoft.Data.SqlClient.SqlConnection.Open()
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerConnection.OpenDbConnection(Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenInternal(Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.Open(Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReader(RelationalCommandParameterObject parameterObject)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.Enumerator.InitializeReader(Enumerator enumerator)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.Enumerator.<>c.<MoveNext>b__21_0(DbContext _, Enumerator enumerator)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+ClientConnectionId:74cc1530-468f-490b-a385-cd735e3e6a81
+Error Number:4060,State:1,Class:11
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.Enumerator.MoveNext()
+   at System.Linq.Enumerable.TryGetSingle[TSource](IEnumerable`1 source, Boolean& found)
+   at lambda_method15(Closure, QueryContext)
+   at Microsoft.EntityFrameworkCore.Query.Internal.QueryCompiler.Execute[TResult](Expression query)
+   at Microsoft.EntityFrameworkCore.Query.Internal.EntityQueryProvider.Execute[TResult](Expression expression)
+   at Indt.Sistema.Seguros.Infra.DataBase.Models.PropostaAgreggate.PropostaRepository.ListarAsync(FiltroPropostas filtroPropostas, CancellationToken cancellationToken) in C:\projetos\Indt.sistema.seguros\src\Indt.Sistema.Seguros.Infra.DataBase\Models\PropostaAgreggate\PropostaRepository.cs:line 109
+   at Indt.Sistema.Seguros.App.API.Propostas.ListarPropostas.ListarPropostasHandler.Handle(ListarPropostasRequest request, CancellationToken cancellationToken) in C:\projetos\Indt.sistema.seguros\src\Indt.Sistema.Seguros.App.API\Propostas\ListarPropostas\Handler_\ListarPropostasHandler.cs:line 28
+   at Indt.Sistema.Seguros.Proposta.API.Controllers.PropostaController.AlterarSatusProposta(Int32 numero, StatusProposta statusPorposta, DateTimeOffset dataIncial, DateTimeOffset dataFinal, Int32 pagina, Int32 itensPaginas, CancellationToken cancellationToken) in C:\projetos\Indt.sistema.seguros\src\Indt.Sistema.Seguros.Proposta.API\Controller\PropostaController.cs:line 90
+   at lambda_method6(Closure, Object)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|25_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeFilterPipelineAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Indt.Sistema.Seguros.Commons.Middlewares.ErrorHandlingMiddleware.InvokeAsync(HttpContext context) in C:\projetos\Indt.sistema.seguros\src\Indt.Sistema.Seguros.Commons\Middlewares\ErrorHandlingMiddleware.cs:line 23
+2025-08-08T15:28:58.3552655+00:00 [INF] (ContatoApp//) Response Body: "[
+  {
+    \"mensagem\": \"Ops, erro interno do servidor\",
+    \"codigo\": \"ERRO_INTERNO_SERVIDOR\",
+    \"targetSite\": null,
+    \"message\": \"Ops, erro interno do servidor\",
+    \"data\": {},
+    \"innerException\": null,
+    \"helpLink\": null,
+    \"source\": null,
+    \"hResult\": -2146233088,
+    \"stackTrace\": null
+  }
+]"
+2025-08-08T15:31:14.5489960+00:00 [INF] (ContatoApp//) Response Body: "{\"propostas\":[],\"totalPropostas\":0,\"totalPagina\":0,\"sucesso\":false,\"mensagem\":null}"
+2025-08-08T15:31:45.2488153+00:00 [INF] (ContatoApp//) Request Body: "{
+  \"numero\": 3265,
+  \"tipoSeguro\": 1,
+  \"dataInicio\": \"2025-08-06T23:40:10.160Z\",
+  \"dataFim\": \"2032-08-06T23:40:10.160Z\",
+  \"valor\":5000,
+  \"cliente\": {
+    \"documento\": \"5465432\",
+    \"nome\": \"Joaoa Santana\",
+    \"dataNescimento\": \"1968-08-06T23:40:10.160Z\",
+    \"endereco\": {
+      \"numero\": 10,
+      \"logradouro\": \"Rua B\",
+      \"cep\": \"49369521\",
+      \"bairro\": \"Jabotiana\",
+      \"cidade\": \"Aracaju\",
+      \"estado\": \"SE\"
+    },
+    \"contato\": {
+      \"numero\": \"988552233\",
+      \"ddd\": \"79\",
+      \"email\": \"joao.santana@gmail.com\"
+    }
+  },
+  \"bemMovel\": {
+    \"marca\": \"Yamaha\",
+    \"anoFabricacao\": \"2025\",
+    \"placa\": \"YAN9856\",
+    \"categoria\": 1,
+    \"utilizacao\": \"Lazer\",
+    \"cor\": \"Preta\",
+    \"chassi\": \"23132165321\"
+  },
+  \"cobertura\": {
+    \"descricao\": \"Roubo-Furto-PerdaTotal-Assistencia\",
+    \"limiteIdenizacao\": \"Fipe\",
+    \"premio\": 36000,
+    \"franquia\": true,
+    \"valorFranquia\": 2000
+  }
+}"
+2025-08-08T15:31:47.4611470+00:00 [INF] (ContatoApp//) Response Body: "{\"propostaId\":\"9ce60b21-d609-4264-9320-96621b79faa1\",\"sucesso\":false,\"mensagem\":null}"
+2025-08-08T15:32:36.9947495+00:00 [INF] (ContatoApp//) Response Body: "{\"propostaId\":\"b76c0280-65a7-41c5-bcd0-5485dfeff133\",\"sucesso\":false,\"mensagem\":null}"
+2025-08-08T15:43:59.8565154+00:00 [INF] (ContatoApp//) Request Body: "{
+  \"numero\": 3265,
+  \"tipoSeguro\": 1,
+  \"dataInicio\": \"2025-08-06T23:40:10.160Z\",
+  \"dataFim\": \"2032-08-06T23:40:10.160Z\",
+  \"valor\":5000,
+  \"cliente\": {
+    \"documento\": \"5465432\",
+    \"nome\": \"Joaoa Santana\",
+    \"dataNescimento\": \"1968-08-06T23:40:10.160Z\",
+    \"endereco\": {
+      \"numero\": 10,
+      \"logradouro\": \"Rua B\",
+      \"cep\": \"49369521\",
+      \"bairro\": \"Jabotiana\",
+      \"cidade\": \"Aracaju\",
+      \"estado\": \"SE\"
+    },
+    \"contato\": {
+      \"numero\": \"988552233\",
+      \"ddd\": \"79\",
+      \"email\": \"joao.santana@gmail.com\"
+    }
+  },
+  \"bemMovel\": {
+    \"marca\": \"Yamaha\",
+    \"anoFabricacao\": \"2025\",
+    \"placa\": \"YAN9856\",
+    \"categoria\": 1,
+    \"utilizacao\": \"Lazer\",
+    \"cor\": \"Preta\",
+    \"chassi\": \"23132165321\"
+  },
+  \"cobertura\": {
+    \"descricao\": \"Roubo-Furto-PerdaTotal-Assistencia\",
+    \"limiteIdenizacao\": \"Fipe\",
+    \"premio\": 36000,
+    \"franquia\": true,
+    \"valorFranquia\": 2000
+  }
+}"
+2025-08-08T15:44:10.4711628+00:00 [INF] (ContatoApp//) Response Body: "{\"propostaId\":\"81e40cd8-ed5d-4e73-a580-8c715e718612\",\"sucesso\":false,\"mensagem\":null}"
+2025-08-08T15:45:00.0531429+00:00 [INF] (ContatoApp//) Response Body: "{\"propostaId\":\"59058674-2c72-41d7-aabf-f035f38cff91\",\"sucesso\":false,\"mensagem\":null}"
+2025-08-08T15:54:42.3567169+00:00 [INF] (ContatoApp//) Response Body: "{\"propostaId\":\"2c868bba-e456-4d3b-9707-6e612aeefca4\",\"sucesso\":false,\"mensagem\":null}"
+2025-08-08T15:57:32.4062171+00:00 [INF] (ContatoApp//) Response Body: "{\"propostaId\":\"97695909-a613-4ef4-8260-806792da725c\",\"sucesso\":false,\"mensagem\":null}"
+2025-08-08T16:25:04.8361895+00:00 [INF] (ContatoApp//) Response Body: "{\"propostaId\":\"da9c80bf-998e-4335-a5af-dfd211940071\",\"sucesso\":false,\"mensagem\":null}"
+2025-08-08T16:52:16.2628048+00:00 [INF] (ContatoApp//) Response Body: "{\"propostaId\":\"e5eb9dba-795e-4806-98ea-21cc2b749971\",\"sucesso\":false,\"mensagem\":null}"
+2025-08-08T17:55:54.9490940+00:00 [INF] (ContatoApp//) Request Body: "{
+  \"numero\": 3265,
+  \"tipoSeguro\": 1,
+  \"dataInicio\": \"2025-08-06T23:40:10.160Z\",
+  \"dataFim\": \"2032-08-06T23:40:10.160Z\",
+  \"valor\":5000,
+  \"cliente\": {
+    \"documento\": \"5465432\",
+    \"nome\": \"Joaoa Santana\",
+    \"dataNescimento\": \"1968-08-06T23:40:10.160Z\",
+    \"endereco\": {
+      \"numero\": 10,
+      \"logradouro\": \"Rua B\",
+      \"cep\": \"49369521\",
+      \"bairro\": \"Jabotiana\",
+      \"cidade\": \"Aracaju\",
+      \"estado\": \"SE\"
+    },
+    \"contato\": {
+      \"numero\": \"988552233\",
+      \"ddd\": \"79\",
+      \"email\": \"joao.santana@gmail.com\"
+    }
+  },
+  \"bemMovel\": {
+    \"marca\": \"Yamaha\",
+    \"anoFabricacao\": \"2025\",
+    \"placa\": \"YAN9856\",
+    \"categoria\": 1,
+    \"utilizacao\": \"Lazer\",
+    \"cor\": \"Preta\",
+    \"chassi\": \"23132165321\"
+  },
+  \"cobertura\": {
+    \"descricao\": \"Roubo-Furto-PerdaTotal-Assistencia\",
+    \"limiteIdenizacao\": \"Fipe\",
+    \"premio\": 36000,
+    \"franquia\": true,
+    \"valorFranquia\": 2000
+  }
+}"
+2025-08-08T17:56:02.9553742+00:00 [INF] (ContatoApp//) Response Body: "{\"propostaId\":\"0b7ac394-c4ed-43fd-b51a-f0ed9bba94f0\",\"sucesso\":false,\"mensagem\":null}"
+2025-08-08T17:56:56.7396922+00:00 [INF] (ContatoApp//) Response Body: "{\"propostaId\":\"0c33f55a-b079-4ee4-8eeb-96a213215340\",\"sucesso\":true,\"mensagem\":\"Atualizada com sucesso  e solicitação de criação de contrato realizado\"}"

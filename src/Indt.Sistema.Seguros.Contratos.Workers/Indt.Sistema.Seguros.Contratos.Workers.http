@@ -1,0 +1,6 @@
+@Indt.Sistema.Seguros.Contratos.Workers_HostAddress = http://localhost:5081
+
+GET {{Indt.Sistema.Seguros.Contratos.Workers_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

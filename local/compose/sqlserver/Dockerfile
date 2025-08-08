@@ -1,0 +1,9 @@
+FROM mcr.microsoft.com/mssql/server:2022-latest
+
+WORKDIR /usr/src/app
+
+COPY . /usr/src/app
+
+ENV MSSQL_SA_PASSWORD: indtseguros@123
+ENV ACCEPT_EULA: "Y"
+EXPOSE 1433
