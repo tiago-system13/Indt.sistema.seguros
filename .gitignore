@@ -47,3 +47,4 @@
 /src/Indt.Sistema.Seguros.Infra.MessageBroker/obj
 /src/Indt.Sistema.Seguros.Proposta.API/bin/Debug/net8.0
 /src/Indt.Sistema.Seguros.Proposta.API/obj
+/Indt.Sistema.Seguros.Tests/bin/Release/net8.0
