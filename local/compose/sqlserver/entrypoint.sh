@@ -1,1 +1,1 @@
-/usr/src/app/init-contato.sh & /opt/mssql/bin/sqlserver
+/usr/src/app/init-indtseguro.sh & /opt/mssql/bin/sqlserver

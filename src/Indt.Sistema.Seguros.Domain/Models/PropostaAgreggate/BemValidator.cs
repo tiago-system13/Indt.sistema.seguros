@@ -1,9 +1,5 @@
 ﻿using FluentValidation;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using Indt.Sistema.Seguros.Domain.Shared.Enums;
 
 namespace Indt.Sistema.Seguros.Domain.Models.PropostaAgreggate
 {
@@ -42,7 +38,7 @@ namespace Indt.Sistema.Seguros.Domain.Models.PropostaAgreggate
                .WithErrorCode("COR_BEM_OBRIGATORIO");
 
             RuleFor(bem => bem.Categoria)
-               .NotEmpty()
+               .Must(x => Enum.IsDefined(typeof(Categoria), x))
                .WithMessage("Informe a categoria do bem.")
                .WithErrorCode("CATEGORIA_BEM_OBRIGATORIO");
         }   

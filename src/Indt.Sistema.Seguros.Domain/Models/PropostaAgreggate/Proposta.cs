@@ -50,13 +50,20 @@ namespace Indt.Sistema.Seguros.Domain.Models.PropostaAgreggate
             Cliente = cliente;
             Bem = bem;
             Cobertura = cobertura;
+            Id = id;
             Validate(this, new PropostaValidator());
+            
         }        
 
         public void AlterarStatusProposta(StatusProposta statusProposta, DateTime dataAtualizacao)
         {
             StatusProposta = statusProposta; 
             DataDeAlteracao = dataAtualizacao;
+        }
+
+        public void SetarPrazoProposta(DateTimeOffset dataInicio, DateTimeOffset dataFim)
+        {
+            Prazo = ((dataFim.Year - dataInicio.Year) * 12) + dataFim.Month - dataInicio.Month;
         }
     }
 }

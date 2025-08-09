@@ -1,0 +1,1 @@
+/opt/mssql-tools/bin/sqlcmd -C -S mssql-server -U sa -P indtseguros@123  -d master -i /tmp/criandotabelas.sql
