@@ -33,7 +33,7 @@ Consultar Contratos: Implementar uma funcionalidade para consultar e visualizar 
 
 - **Caso esteja utilizando o Visual Studio**
 
-  > Clicando com o botão direito no projeto EABR.QualityService.Apis e selecionando a opção propriedades, será aberto o menu de propriedades do projeto em questão, selecionando a opção depurar é possível encontrar as variáveis do ambiente.  
+  > Clicando com o botão direito no projeto e selecionando a opção propriedades, será aberto o menu de propriedades do projeto em questão, selecionando a opção depurar é possível encontrar as variáveis do ambiente.  
 
   
 ## Criar a estrutura da base
