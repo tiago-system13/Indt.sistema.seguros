@@ -19,5 +19,5 @@ jobs:
             file: ./src/Indt.Sistema.Seguros.Proposta.API/Dockerfile
             push: true
             tags: |
-              tiagoinfor13/live-kube-news: ${{github.run_number}}
+              tiagoinfor13/live-kube-news:${{github.run_number}}
               tiagoinfor13/live-kube-news:latest
