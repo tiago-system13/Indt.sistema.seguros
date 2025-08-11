@@ -20,4 +20,4 @@ jobs:
             push: true
             tags: |
               tiagoinfor13/live-kube-news:v1
-              tiagoinfor13/live-kube-news: latest
+              tiagoinfor13/live-kube-news:latest
