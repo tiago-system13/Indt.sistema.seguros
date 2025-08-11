@@ -16,7 +16,7 @@ jobs:
          uses: docker/build-push-action@v6.18.0
          with:
             context: ./src/Indt.Sistema.Seguros.Proposta.API
-            file: .src/Indt.Sistema.Seguros.Proposta.API/Dockerfile
+            file: ./src/Indt.Sistema.Seguros.Proposta.API/Dockerfile
             push: true
             tags: |
               tiagoinfor13/live-kube-news:v1
