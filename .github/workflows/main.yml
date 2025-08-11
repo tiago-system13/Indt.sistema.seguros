@@ -15,9 +15,9 @@ jobs:
        - name: Construção imagem docker Api Seguros
          uses: docker/build-push-action@v6.18.0
          with:
-            context: ./src
+            context: .
             file: ./src/Indt.Sistema.Seguros.Proposta.API/Dockerfile
             push: true
             tags: |
-              tiagoinfor13/live-kube-news:v1
+              tiagoinfor13/live-kube-news: ${{github.run_number}}
               tiagoinfor13/live-kube-news:latest
