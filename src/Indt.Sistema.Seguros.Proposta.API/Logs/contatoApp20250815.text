@@ -1,0 +1,129 @@
+2025-08-15T13:24:00.2652907+00:00 [INF] (ContatoApp//) Request Body: "{
+  \"numero\": 3265,
+  \"tipoSeguro\": 1,
+  \"dataInicio\": \"2025-08-06T23:40:10.160Z\",
+  \"dataFim\": \"2032-08-06T23:40:10.160Z\",
+  \"valor\":5000,
+  \"cliente\": {
+    \"documento\": \"5465432\",
+    \"nome\": \"Joaoa Santana\",
+    \"dataNescimento\": \"1968-08-06T23:40:10.160Z\",
+    \"endereco\": {
+      \"numero\": 10,
+      \"logradouro\": \"Rua B\",
+      \"cep\": \"49369521\",
+      \"bairro\": \"Jabotiana\",
+      \"cidade\": \"Aracaju\",
+      \"estado\": \"SE\"
+    },
+    \"contato\": {
+      \"numero\": \"988552233\",
+      \"ddd\": \"79\",
+      \"email\": \"joao.santana@gmail.com\"
+    }
+  },
+  \"bemMovel\": {
+    \"marca\": \"Yamaha\",
+    \"anoFabricacao\": \"2025\",
+    \"placa\": \"YAN9856\",
+    \"categoria\": 1,
+    \"utilizacao\": \"Lazer\",
+    \"cor\": \"Preta\",
+    \"chassi\": \"23132165321\"
+  },
+  \"cobertura\": {
+    \"descricao\": \"Roubo-Furto-PerdaTotal-Assistencia\",
+    \"limiteIdenizacao\": \"Fipe\",
+    \"premio\": 36000,
+    \"franquia\": true,
+    \"valorFranquia\": 2000
+  }
+}"
+2025-08-15T13:28:51.2579548+00:00 [INF] (ContatoApp//) Request Body: "{
+  \"numero\": 3265,
+  \"tipoSeguro\": 1,
+  \"dataInicio\": \"2025-08-06T23:40:10.160Z\",
+  \"dataFim\": \"2032-08-06T23:40:10.160Z\",
+  \"valor\":5000,
+  \"cliente\": {
+    \"documento\": \"5465432\",
+    \"nome\": \"Joaoa Santana\",
+    \"dataNescimento\": \"1968-08-06T23:40:10.160Z\",
+    \"endereco\": {
+      \"numero\": 10,
+      \"logradouro\": \"Rua B\",
+      \"cep\": \"49369521\",
+      \"bairro\": \"Jabotiana\",
+      \"cidade\": \"Aracaju\",
+      \"estado\": \"SE\"
+    },
+    \"contato\": {
+      \"numero\": \"988552233\",
+      \"ddd\": \"79\",
+      \"email\": \"joao.santana@gmail.com\"
+    }
+  },
+  \"bemMovel\": {
+    \"marca\": \"Yamaha\",
+    \"anoFabricacao\": \"2025\",
+    \"placa\": \"YAN9856\",
+    \"categoria\": 1,
+    \"utilizacao\": \"Lazer\",
+    \"cor\": \"Preta\",
+    \"chassi\": \"23132165321\"
+  },
+  \"cobertura\": {
+    \"descricao\": \"Roubo-Furto-PerdaTotal-Assistencia\",
+    \"limiteIdenizacao\": \"Fipe\",
+    \"premio\": 36000,
+    \"franquia\": true,
+    \"valorFranquia\": 2000
+  }
+}"
+2025-08-15T13:31:19.7533889+00:00 [INF] (ContatoApp//) Response Body: "{\"propostaId\":\"fc759487-857d-47fa-c8e0-08dddc000409\",\"sucesso\":true,\"mensagem\":\"Propsota cadastrada com sucesso!\"}"
+2025-08-15T13:41:47.1019990+00:00 [INF] (ContatoApp//) Response Body: "{\"propostaId\":\"fc759487-857d-47fa-c8e0-08dddc000409\",\"sucesso\":true,\"mensagem\":\"Atualizada com sucesso  e solicitação de criação de contrato realizado\"}"
+2025-08-15T14:50:38.2519102+00:00 [INF] (ContatoApp//) Response Body: "{\"propostas\":[],\"totalPropostas\":0,\"totalPagina\":0,\"sucesso\":false,\"mensagem\":null}"
+2025-08-15T14:50:46.4587545+00:00 [INF] (ContatoApp//) Response Body: "{\"propostas\":[],\"totalPropostas\":0,\"totalPagina\":0,\"sucesso\":false,\"mensagem\":null}"
+2025-08-15T14:58:23.0154807+00:00 [INF] (ContatoApp//) Request Body: "{
+  \"numero\": 3266,
+  \"tipoSeguro\": 1,
+  \"dataInicio\": \"2025-08-06T23:40:10.160Z\",
+  \"dataFim\": \"2032-08-06T23:40:10.160Z\",
+  \"valor\":5000,
+  \"cliente\": {
+    \"documento\": \"54654252\",
+    \"nome\": \"Maria Santana\",
+    \"dataNescimento\": \"1968-08-06T23:40:10.160Z\",
+    \"endereco\": {
+      \"numero\": 10,
+      \"logradouro\": \"Rua B\",
+      \"cep\": \"49369521\",
+      \"bairro\": \"Jabotiana\",
+      \"cidade\": \"Aracaju\",
+      \"estado\": \"SE\"
+    },
+    \"contato\": {
+      \"numero\": \"988552233\",
+      \"ddd\": \"79\",
+      \"email\": \"joao.santana@gmail.com\"
+    }
+  },
+  \"bemMovel\": {
+    \"marca\": \"Yamaha\",
+    \"anoFabricacao\": \"2025\",
+    \"placa\": \"YAN9856\",
+    \"categoria\": 1,
+    \"utilizacao\": \"Lazer\",
+    \"cor\": \"Preta\",
+    \"chassi\": \"23132165321\"
+  },
+  \"cobertura\": {
+    \"descricao\": \"Roubo-Furto-PerdaTotal-Assistencia\",
+    \"limiteIdenizacao\": \"Fipe\",
+    \"premio\": 36000,
+    \"franquia\": true,
+    \"valorFranquia\": 2000
+  }
+}"
+2025-08-15T14:58:39.5167259+00:00 [INF] (ContatoApp//) Response Body: "{\"propostaId\":\"15c77c13-9622-49e8-7737-08dddc0c367d\",\"sucesso\":true,\"mensagem\":\"Propsota cadastrada com sucesso!\"}"
+2025-08-15T14:59:52.0485069+00:00 [INF] (ContatoApp//) Response Body: "{\"propostaId\":\"15c77c13-9622-49e8-7737-08dddc0c367d\",\"sucesso\":true,\"mensagem\":\"Atualizada com sucesso\"}"

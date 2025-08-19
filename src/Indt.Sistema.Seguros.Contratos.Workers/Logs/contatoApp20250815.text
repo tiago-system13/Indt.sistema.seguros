@@ -1,0 +1,2 @@
+2025-08-15T13:40:30.5557815+00:00 [INF] (ContatoApp//) CriarContratoDispatcher | CriarContratoAsync | Mensagem : Indt.Sistema.Seguros.Domain.Adapters.Commands.ContratoCriadoCommand
+2025-08-15T13:41:53.3665151+00:00 [INF] (ContatoApp//) CriarContratoDispatcher | CriarContratoAsync | Mensagem : Contrato criado aa387cd2-4395-402a-b8bd-b9906873462c
