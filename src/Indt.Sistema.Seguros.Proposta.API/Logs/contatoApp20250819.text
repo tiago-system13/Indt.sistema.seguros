@@ -52,3 +52,95 @@
 2025-08-19T01:53:35.2757624+00:00 [INF] (ContatoApp//) Response Body: "{\"propostas\":[],\"totalPropostas\":0,\"totalPagina\":0,\"sucesso\":false,\"mensagem\":null}"
 2025-08-19T01:53:42.0611694+00:00 [INF] (ContatoApp//) Response Body: "{\"propostas\":[{\"propostaId\":\"15c77c13-9622-49e8-7737-08dddc0c367d\",\"numero\":3266,\"tipoSeguro\":1,\"dataInicio\":\"2025-08-06T23:40:10.16+00:00\",\"dataFim\":\"2032-08-06T23:40:10.16+00:00\",\"statusProposta\":1,\"valor\":5000.00,\"prazo\":84,\"documentoCliente\":\"54654252\",\"nomeCliente\":\"Maria Santana\",\"contatoClinete\":\"(79) 988552233\",\"marcaBem\":\"Yamaha\",\"anoFabricacaoBem\":\"2025\",\"placaBem\":\"YAN9856\",\"categoriaBem\":1,\"utilizacaoBem\":\"Lazer\",\"descricaoCobertura\":\"Roubo-Furto-PerdaTotal-Assistencia\",\"limiteIdenizacaoCobertura\":\"Fipe\",\"premioCobertura\":36000.00,\"franquiaCobertura\":true,\"valorFranquiaCobertura\":2000.00},{\"propostaId\":\"0cd1e322-b204-44ab-67b1-08dddec317cb\",\"numero\":3287,\"tipoSeguro\":1,\"dataInicio\":\"2025-08-06T23:40:10.16+00:00\",\"dataFim\":\"2032-08-06T23:40:10.16+00:00\",\"statusProposta\":1,\"valor\":5000.00,\"prazo\":84,\"documentoCliente\":\"5465432\",\"nomeCliente\":\"Ana Santana\",\"contatoClinete\":\"(79) 988552233\",\"marcaBem\":\"Yamaha\",\"anoFabricacaoBem\":\"2025\",\"placaBem\":\"YAN9856\",\"categoriaBem\":1,\"utilizacaoBem\":\"Lazer\",\"descricaoCobertura\":\"Roubo-Furto-PerdaTotal-Assistencia\",\"limiteIdenizacaoCobertura\":\"Fipe\",\"premioCobertura\":36000.00,\"franquiaCobertura\":true,\"valorFranquiaCobertura\":2000.00}],\"totalPropostas\":2,\"totalPagina\":1,\"sucesso\":false,\"mensagem\":null}"
 2025-08-19T01:54:01.4401534+00:00 [INF] (ContatoApp//) Response Body: "{\"propostaId\":\"0cd1e322-b204-44ab-67b1-08dddec317cb\",\"sucesso\":true,\"mensagem\":\"Atualizada com sucesso  e solicitação de criação de contrato realizado\"}"
+2025-08-19T16:40:20.4312056+00:00 [INF] (ContatoApp//) Response Body: "{\"propostas\":[],\"totalPropostas\":0,\"totalPagina\":0,\"sucesso\":false,\"mensagem\":null}"
+2025-08-19T16:54:12.3922878+00:00 [INF] (ContatoApp//) Request Body: "{
+  \"numero\": 6582,
+  \"tipoSeguro\": 1,
+  \"dataInicio\": \"2025-08-06T23:40:10.160Z\",
+  \"dataFim\": \"2030-08-06T23:40:10.160Z\",
+  \"valor\":5000,
+  \"cliente\": {
+    \"documento\": \"5465432\",
+    \"nome\": \"Claudio Alves Santos\",
+    \"dataNescimento\": \"1968-08-06T23:40:10.160Z\",
+    \"endereco\": {
+      \"numero\": 10,
+      \"logradouro\": \"Rua B\",
+      \"cep\": \"49369521\",
+      \"bairro\": \"Jabotiana\",
+      \"cidade\": \"Aracaju\",
+      \"estado\": \"SE\"
+    },
+    \"contato\": {
+      \"numero\": \"988552233\",
+      \"ddd\": \"79\",
+      \"email\": \"joao.santana@gmail.com\"
+    }
+  },
+  \"bemMovel\": {
+    \"marca\": \"Yamaha\",
+    \"anoFabricacao\": \"2025\",
+    \"placa\": \"YAN9856\",
+    \"categoria\": 1,
+    \"utilizacao\": \"Lazer\",
+    \"cor\": \"Preta\",
+    \"chassi\": \"23132165321\"
+  },
+  \"cobertura\": {
+    \"descricao\": \"Roubo-Furto-PerdaTotal-Assistencia\",
+    \"limiteIdenizacao\": \"Fipe\",
+    \"premio\": 36000,
+    \"franquia\": true,
+    \"valorFranquia\": 2000
+  }
+}"
+2025-08-19T16:54:24.9850338+00:00 [INF] (ContatoApp//) Response Body: "{\"propostaId\":\"121f7beb-84a8-4ad0-bf84-08dddf410b6a\",\"sucesso\":true,\"mensagem\":\"Propsota cadastrada com sucesso!\"}"
+2025-08-19T16:57:02.7931014+00:00 [INF] (ContatoApp//) Response Body: "{\"propostaId\":\"121f7beb-84a8-4ad0-bf84-08dddf410b6a\",\"sucesso\":true,\"mensagem\":\"Atualizada com sucesso\"}"
+2025-08-19T16:57:10.3999946+00:00 [INF] (ContatoApp//) Response Body: "{\"propostas\":[],\"totalPropostas\":0,\"totalPagina\":0,\"sucesso\":false,\"mensagem\":null}"
+2025-08-19T16:57:20.1056242+00:00 [INF] (ContatoApp//) Response Body: "{\"propostas\":[{\"propostaId\":\"15c77c13-9622-49e8-7737-08dddc0c367d\",\"numero\":3266,\"tipoSeguro\":1,\"dataInicio\":\"2025-08-06T23:40:10.16+00:00\",\"dataFim\":\"2032-08-06T23:40:10.16+00:00\",\"statusProposta\":1,\"valor\":5000.00,\"prazo\":84,\"documentoCliente\":\"54654252\",\"nomeCliente\":\"Maria Santana\",\"contatoClinete\":\"(79) 988552233\",\"marcaBem\":\"Yamaha\",\"anoFabricacaoBem\":\"2025\",\"placaBem\":\"YAN9856\",\"categoriaBem\":1,\"utilizacaoBem\":\"Lazer\",\"descricaoCobertura\":\"Roubo-Furto-PerdaTotal-Assistencia\",\"limiteIdenizacaoCobertura\":\"Fipe\",\"premioCobertura\":36000.00,\"franquiaCobertura\":true,\"valorFranquiaCobertura\":2000.00},{\"propostaId\":\"121f7beb-84a8-4ad0-bf84-08dddf410b6a\",\"numero\":6582,\"tipoSeguro\":1,\"dataInicio\":\"2025-08-06T23:40:10.16+00:00\",\"dataFim\":\"2030-08-06T23:40:10.16+00:00\",\"statusProposta\":1,\"valor\":5000.00,\"prazo\":60,\"documentoCliente\":\"5465432\",\"nomeCliente\":\"Claudio Alves Santos\",\"contatoClinete\":\"(79) 988552233\",\"marcaBem\":\"Yamaha\",\"anoFabricacaoBem\":\"2025\",\"placaBem\":\"YAN9856\",\"categoriaBem\":1,\"utilizacaoBem\":\"Lazer\",\"descricaoCobertura\":\"Roubo-Furto-PerdaTotal-Assistencia\",\"limiteIdenizacaoCobertura\":\"Fipe\",\"premioCobertura\":36000.00,\"franquiaCobertura\":true,\"valorFranquiaCobertura\":2000.00}],\"totalPropostas\":2,\"totalPagina\":1,\"sucesso\":false,\"mensagem\":null}"
+2025-08-19T16:57:36.0457818+00:00 [INF] (ContatoApp//) Response Body: "{\"propostas\":[{\"propostaId\":\"fc759487-857d-47fa-c8e0-08dddc000409\",\"numero\":3265,\"tipoSeguro\":1,\"dataInicio\":\"2025-08-06T23:40:10.16+00:00\",\"dataFim\":\"2032-08-06T23:40:10.16+00:00\",\"statusProposta\":2,\"valor\":5000.00,\"prazo\":84,\"documentoCliente\":\"5465432\",\"nomeCliente\":\"Joaoa Santana\",\"contatoClinete\":\"(79) 988552233\",\"marcaBem\":\"Yamaha\",\"anoFabricacaoBem\":\"2025\",\"placaBem\":\"YAN9856\",\"categoriaBem\":1,\"utilizacaoBem\":\"Lazer\",\"descricaoCobertura\":\"Roubo-Furto-PerdaTotal-Assistencia\",\"limiteIdenizacaoCobertura\":\"Fipe\",\"premioCobertura\":36000.00,\"franquiaCobertura\":true,\"valorFranquiaCobertura\":2000.00},{\"propostaId\":\"0cd1e322-b204-44ab-67b1-08dddec317cb\",\"numero\":3287,\"tipoSeguro\":1,\"dataInicio\":\"2025-08-06T23:40:10.16+00:00\",\"dataFim\":\"2032-08-06T23:40:10.16+00:00\",\"statusProposta\":2,\"valor\":5000.00,\"prazo\":84,\"documentoCliente\":\"5465432\",\"nomeCliente\":\"Ana Santana\",\"contatoClinete\":\"(79) 988552233\",\"marcaBem\":\"Yamaha\",\"anoFabricacaoBem\":\"2025\",\"placaBem\":\"YAN9856\",\"categoriaBem\":1,\"utilizacaoBem\":\"Lazer\",\"descricaoCobertura\":\"Roubo-Furto-PerdaTotal-Assistencia\",\"limiteIdenizacaoCobertura\":\"Fipe\",\"premioCobertura\":36000.00,\"franquiaCobertura\":true,\"valorFranquiaCobertura\":2000.00}],\"totalPropostas\":2,\"totalPagina\":1,\"sucesso\":false,\"mensagem\":null}"
+2025-08-19T17:07:35.9536245+00:00 [INF] (ContatoApp//) Request Body: "{
+  \"numero\": 9852,
+  \"tipoSeguro\": 1,
+  \"dataInicio\": \"2025-08-06T23:40:10.160Z\",
+  \"dataFim\": \"2031-08-06T23:40:10.160Z\",
+  \"valor\":6000,
+  \"cliente\": {
+    \"documento\": \"69852\",
+    \"nome\": \"Maria Silva Menezes\",
+    \"dataNescimento\": \"1970-08-06T23:40:10.160Z\",
+    \"endereco\": {
+      \"numero\": 10,
+      \"logradouro\": \"Rua B\",
+      \"cep\": \"49369521\",
+      \"bairro\": \"Jabotiana\",
+      \"cidade\": \"Aracaju\",
+      \"estado\": \"SE\"
+    },
+    \"contato\": {
+      \"numero\": \"988552233\",
+      \"ddd\": \"79\",
+      \"email\": \"joao.santana@gmail.com\"
+    }
+  },
+  \"bemMovel\": {
+    \"marca\": \"Yamaha\",
+    \"anoFabricacao\": \"2025\",
+    \"placa\": \"YAN9856\",
+    \"categoria\": 1,
+    \"utilizacao\": \"Lazer\",
+    \"cor\": \"Preta\",
+    \"chassi\": \"23132165321\"
+  },
+  \"cobertura\": {
+    \"descricao\": \"Roubo-Furto-PerdaTotal-Assistencia\",
+    \"limiteIdenizacao\": \"Fipe\",
+    \"premio\": 36000,
+    \"franquia\": true,
+    \"valorFranquia\": 2000
+  }
+}"
+2025-08-19T17:07:42.2912863+00:00 [INF] (ContatoApp//) Response Body: "{\"propostaId\":\"0be3aea1-7d66-4aa2-bf85-08dddf410b6a\",\"sucesso\":true,\"mensagem\":\"Propsota cadastrada com sucesso!\"}"
+2025-08-19T17:08:03.3399135+00:00 [INF] (ContatoApp//) Response Body: "{\"propostas\":[{\"propostaId\":\"0be3aea1-7d66-4aa2-bf85-08dddf410b6a\",\"numero\":9852,\"tipoSeguro\":1,\"dataInicio\":\"2025-08-06T23:40:10.16+00:00\",\"dataFim\":\"2031-08-06T23:40:10.16+00:00\",\"statusProposta\":0,\"valor\":6000.00,\"prazo\":72,\"documentoCliente\":\"69852\",\"nomeCliente\":\"Maria Silva Menezes\",\"contatoClinete\":\"(79) 988552233\",\"marcaBem\":\"Yamaha\",\"anoFabricacaoBem\":\"2025\",\"placaBem\":\"YAN9856\",\"categoriaBem\":1,\"utilizacaoBem\":\"Lazer\",\"descricaoCobertura\":\"Roubo-Furto-PerdaTotal-Assistencia\",\"limiteIdenizacaoCobertura\":\"Fipe\",\"premioCobertura\":36000.00,\"franquiaCobertura\":true,\"valorFranquiaCobertura\":2000.00}],\"totalPropostas\":1,\"totalPagina\":1,\"sucesso\":false,\"mensagem\":null}"
+2025-08-19T17:08:59.5412254+00:00 [INF] (ContatoApp//) Response Body: "{\"propostaId\":\"0be3aea1-7d66-4aa2-bf85-08dddf410b6a\",\"sucesso\":true,\"mensagem\":\"Atualizada com sucesso  e solicitação de criação de contrato realizado\"}"
+2025-08-19T17:09:27.1801547+00:00 [INF] (ContatoApp//) Response Body: "{\"propostas\":[{\"propostaId\":\"fc759487-857d-47fa-c8e0-08dddc000409\",\"numero\":3265,\"tipoSeguro\":1,\"dataInicio\":\"2025-08-06T23:40:10.16+00:00\",\"dataFim\":\"2032-08-06T23:40:10.16+00:00\",\"statusProposta\":2,\"valor\":5000.00,\"prazo\":84,\"documentoCliente\":\"5465432\",\"nomeCliente\":\"Joaoa Santana\",\"contatoClinete\":\"(79) 988552233\",\"marcaBem\":\"Yamaha\",\"anoFabricacaoBem\":\"2025\",\"placaBem\":\"YAN9856\",\"categoriaBem\":1,\"utilizacaoBem\":\"Lazer\",\"descricaoCobertura\":\"Roubo-Furto-PerdaTotal-Assistencia\",\"limiteIdenizacaoCobertura\":\"Fipe\",\"premioCobertura\":36000.00,\"franquiaCobertura\":true,\"valorFranquiaCobertura\":2000.00},{\"propostaId\":\"0cd1e322-b204-44ab-67b1-08dddec317cb\",\"numero\":3287,\"tipoSeguro\":1,\"dataInicio\":\"2025-08-06T23:40:10.16+00:00\",\"dataFim\":\"2032-08-06T23:40:10.16+00:00\",\"statusProposta\":2,\"valor\":5000.00,\"prazo\":84,\"documentoCliente\":\"5465432\",\"nomeCliente\":\"Ana Santana\",\"contatoClinete\":\"(79) 988552233\",\"marcaBem\":\"Yamaha\",\"anoFabricacaoBem\":\"2025\",\"placaBem\":\"YAN9856\",\"categoriaBem\":1,\"utilizacaoBem\":\"Lazer\",\"descricaoCobertura\":\"Roubo-Furto-PerdaTotal-Assistencia\",\"limiteIdenizacaoCobertura\":\"Fipe\",\"premioCobertura\":36000.00,\"franquiaCobertura\":true,\"valorFranquiaCobertura\":2000.00},{\"propostaId\":\"0be3aea1-7d66-4aa2-bf85-08dddf410b6a\",\"numero\":9852,\"tipoSeguro\":1,\"dataInicio\":\"2025-08-06T23:40:10.16+00:00\",\"dataFim\":\"2031-08-06T23:40:10.16+00:00\",\"statusProposta\":2,\"valor\":6000.00,\"prazo\":72,\"documentoCliente\":\"69852\",\"nomeCliente\":\"Maria Silva Menezes\",\"contatoClinete\":\"(79) 988552233\",\"marcaBem\":\"Yamaha\",\"anoFabricacaoBem\":\"2025\",\"placaBem\":\"YAN9856\",\"categoriaBem\":1,\"utilizacaoBem\":\"Lazer\",\"descricaoCobertura\":\"Roubo-Furto-PerdaTotal-Assistencia\",\"limiteIdenizacaoCobertura\":\"Fipe\",\"premioCobertura\":36000.00,\"franquiaCobertura\":true,\"valorFranquiaCobertura\":2000.00}],\"totalPropostas\":3,\"totalPagina\":1,\"sucesso\":false,\"mensagem\":null}"

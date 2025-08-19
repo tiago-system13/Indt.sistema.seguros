@@ -1,2 +1,4 @@
 2025-08-19T01:54:02.7674938+00:00 [INF] (ContatoApp//) CriarContratoDispatcher | CriarContratoAsync | Mensagem : Indt.Sistema.Seguros.Domain.Adapters.Commands.ContratoCriadoCommand
 2025-08-19T01:54:10.8787706+00:00 [INF] (ContatoApp//) CriarContratoDispatcher | CriarContratoAsync | Mensagem : Contrato criado 062d37d2-bca5-4bdf-b254-0f2adcea594c
+2025-08-19T17:09:06.4577939+00:00 [INF] (ContatoApp//) CriarContratoDispatcher | CriarContratoAsync | Mensagem : Indt.Sistema.Seguros.Domain.Adapters.Commands.ContratoCriadoCommand
+2025-08-19T17:09:26.0833475+00:00 [INF] (ContatoApp//) CriarContratoDispatcher | CriarContratoAsync | Mensagem : Contrato criado 36ffe826-382e-4de4-91da-430250161af7
